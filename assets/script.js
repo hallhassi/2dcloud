@@ -34,10 +34,29 @@ Array.from(items).forEach((item, itemIndex) => {
     Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
         img.itemIndex = itemIndex
         img.imgIndex = imgIndex
-        img.addEventListener("load", handleLoad)
         imgArray.push(img)
     })
 })
+
+
+
+// set window height
+
+spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
+
+
+// '/product/[...]'
+
+if (typeof productid !== 'undefined') {
+    imgArray.forEach((img, i) => {
+        img.addEventListener("load", handleLoad)
+        if (img.dataset.id == productid) {
+            window.scrollTo(0, (i / items.length * scrollableHeight) + 1)
+            pushState(img.dataset.handle)
+        }
+    })
+}
+
 
 function handleLoad() {
     imgIndex = this.imgIndex
@@ -46,11 +65,6 @@ function handleLoad() {
         img.removeEventListener("load", handleLoad)
     })
 }
-
-
-// set window height
-
-spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
 
 
 // scroll
@@ -87,17 +101,6 @@ function draw() {
 
 
 
-
-// '/product/[...]'
-
-if (typeof productid !== 'undefined') {
-    items.forEach((item, i) => {
-        if (item.dataset.id == productid) {
-            window.scrollTo(0, (i / items.length * scrollableHeight) + 1)
-            pushState(item.dataset.handle)
-        }
-    })
-}
 
 
 // checkbox
