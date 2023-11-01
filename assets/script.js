@@ -61,7 +61,7 @@ window.addEventListener('resize', draw);
 function draw() {
     imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
-    const itemIndex = img.index
+    const itemIndex = img.itemIndex
     if (previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
