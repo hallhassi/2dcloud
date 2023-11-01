@@ -49,6 +49,7 @@
     {% endfor %}{% endpaginate %}
 
     <canvas id="canvas"></canvas>
+    <div id="spacer"></div>
     {{ content_for_layout }}
     {{ "script.js" | asset_url | script_tag }}
 </body>

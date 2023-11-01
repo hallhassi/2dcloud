@@ -3,7 +3,7 @@ const added = document.getElementsByClassName('added')
 const items = document.querySelectorAll('.item')
 const cart = document.querySelector('#cart')
 const header = document.querySelector('header')
-const spacer = document.createElement('div')
+const spacer = document.querySelector('#spacer')
 const total = cart.querySelector('#total')
 const buys = Array.from(document.querySelectorAll('.buy'))
 const qtys = Array.from(document.querySelectorAll('.qty'))
@@ -20,13 +20,12 @@ const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImage
 let storedHandle
 let clearCode, firstPass = true
-document.body.append(spacer)
 
 
 
 
 // build array of images
-const scrollStep = 20
+const scrollStep = 100
 const initialOffset = window.scrollY + header.getBoundingClientRect().top
 const itemArray = []
 Array.from(items).forEach(item => {
@@ -55,8 +54,8 @@ function draw() {
         const img = item[imgIndex]
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex].classList.add('vis')
-        console.log(`${itemIndex},${itemIndexPrecise}, ${item.length}[${imgIndex}]`)
-        console.log(Math.floor((1 - (itemIndex - itemIndexPrecise)) , item.length))
+        console.log(`${itemArray.length}[${itemIndex}] ${item.length}[${imgIndex}]`)
+        console.log(`${window.scrollY}`)
         if (img.complete) {
             canvas.width = img.naturalWidth
             canvas.height = img.naturalHeight
