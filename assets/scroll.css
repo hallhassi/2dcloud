@@ -18,7 +18,12 @@ canvas {
 #cart,video {
   max-height: 50vh;
 }
-
+#display {
+  max-width: 50%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
 .item {
   max-width: 50%;
   position: fixed;

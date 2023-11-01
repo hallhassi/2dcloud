@@ -3,6 +3,7 @@ const added = document.getElementsByClassName('added')
 const items = document.querySelectorAll('.item')
 const cart = document.querySelector('#cart')
 const header = document.querySelector('header')
+const display = document.querySelector('#display')
 const spacer = document.querySelector('#spacer')
 const total = cart.querySelector('#total')
 const buys = Array.from(document.querySelectorAll('.buy'))
@@ -24,44 +25,40 @@ let clearCode, firstPass = true
 
 
 
-// build array of images
-const scrollStep = 100
+const scrollStep = 25
+spacer.style.height = items.length * scrollStep + document.documentElement.clientHeight + 'px'
 const initialOffset = window.scrollY + header.getBoundingClientRect().top
-const itemArray = []
-Array.from(items).forEach(item => {
-    const images = []
-    Array.from(item.querySelectorAll('img')).forEach((img, index) => {
+
+
+// build array
+
+const imgArray = []
+Array.from(items).forEach((item, index) => {
+    Array.from(item.querySelectorAll('img')).forEach(img => {
         img.index = index
-        images.push(img)
+        imgArray.push(img)
     })
-    itemArray.push(images)
 })
 
-spacer.style.height = items.length * scrollStep + document.documentElement.clientHeight + 'px'
 
 window.addEventListener('scroll', onScrub, { passive: true });
 function onScrub() {
     draw()
 }
 
-
 function draw() {
-    const itemIndexPrecise = (window.scrollY - initialOffset) / scrollStep
-    const itemIndex = Math.ceil(itemIndexPrecise)
-    const item = itemArray[itemIndex]
-    if (item !== undefined) {
-        const imgIndex = Math.floor((1 - (itemIndex - itemIndexPrecise)) * item.length)
-        const img = item[imgIndex]
+    const imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
+    const img = imgArray[imgIndex]
+    const itemIndex = img.index
+    if (img !== undefined && img.complete) {
+        canvas.width = img.naturalWidth
+        canvas.height = img.naturalHeight
+        context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
+        canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex].classList.add('vis')
-        console.log(`${itemArray.length}[${itemIndex}] ${item.length}[${imgIndex}]`)
+        console.log(`${imgArray.length}[${imgIndex}] ${item.length}[${imgIndex}]`)
         console.log(`${window.scrollY}`)
-        if (img.complete) {
-            canvas.width = img.naturalWidth
-            canvas.height = img.naturalHeight
-            context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-            canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        }
     }
 }
 
