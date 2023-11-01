@@ -20,6 +20,7 @@ const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
+let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 const fontSize = parseInt(window.getComputedStyle(header).fontSize)
 const minTextWidth = 12 * fontSize
 
@@ -35,9 +36,21 @@ const imgArray = []
 Array.from(items).forEach((item, index) => {
     Array.from(item.querySelectorAll('img')).forEach(img => {
         img.index = index
+        img.addEventListener("load", handleLoad)
         imgArray.push(img)
     })
 })
+
+function handleLoad() {
+    imgIndex = this.index
+    draw()
+    images.forEach(image => {
+        image.removeEventListener("load", handleLoad)
+    })
+}
+
+
+// set window height
 
 spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
 
@@ -48,7 +61,7 @@ window.addEventListener('scroll', draw, { passive: true });
 window.addEventListener('resize', draw);
 
 function draw() {
-    const imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
+    imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
     const itemIndex = img.index
     if (previousItemIndex != itemIndex) {
@@ -73,6 +86,8 @@ function draw() {
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
 }
+
+
 
 
 // '/product/[...]'
@@ -104,7 +119,7 @@ function checkboxFunction() {
 }
 
 
-// scroll
+// click on item
 
 window.addEventListener('click', (e) => {
     if (history.state) storedHandle = history.state.handle
