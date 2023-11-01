@@ -24,10 +24,12 @@ const minTextWidth = 12 * fontSize
 // build array
 
 const imgArray = []
-Array.from(items).forEach((item, itemIndex) => {
+Array.from(items).forEach((item, itemIndex, itemArray) => {
     Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
+        console.log(img);
         img.itemIndex = itemIndex
         img.imgIndex = imgIndex
+        img.productId = itemArray.dataset.id
         imgArray.push(img)
     })
 })
@@ -50,8 +52,8 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
-        if (img.dataset.id == productid) {
-            console.log(productid);
+        console.log(img.dataset.id, productid);
+        if (img.productId == productid) {
             img.addEventListener("load", handleLoad)
             window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
             pushState(img.dataset.handle)
