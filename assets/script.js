@@ -58,7 +58,7 @@ function draw() {
         canvas.height = img.naturalHeight
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        const spaceForDetails = window.innerWidth - canvas.width
+        const spaceForDetails = window.innerWidth - canvas.getBoundingClientRect().width
         if (spaceForDetails > minTextWidth) items[itemIndex].width = spaceForDetails
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
