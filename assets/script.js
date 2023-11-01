@@ -42,6 +42,7 @@ Array.from(items).forEach((item, index) => {
 spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
 
 
+// scroll
 
 window.addEventListener('scroll', draw, { passive: true });
 window.addEventListener('resize', draw);
@@ -72,9 +73,6 @@ function draw() {
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
 }
-
-
-
 
 
 // '/product/[...]'
@@ -146,10 +144,8 @@ function checkboxFunction() {
 
 window.addEventListener('click', (e) => {
     if (history.state) storedHandle = history.state.handle
-    if (e.target.parentNode?.parentNode?.open == false &&
-        e.target.parentNode.parentNode.dataset?.handle !== storedHandle &&
-        e.target.tagName !== 'BUTTON') {
-        pushState(e.target.parentNode.parentNode.dataset.handle)
+    if (e.target.parentNode.dataset?.handle !== storedHandle) {
+        pushState(e.target.parentNode.dataset.handle)
         closeItems()
     } else if (e.target.tagName == 'BODY') closeItems()
 })
