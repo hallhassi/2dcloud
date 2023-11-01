@@ -51,12 +51,12 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
         if (img.dataset.id == productid) {
+            console.log(productid);
             img.addEventListener("load", handleLoad)
             window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
             pushState(img.dataset.handle)
         }
     })
-    console.log(productid);
 }
 
 
