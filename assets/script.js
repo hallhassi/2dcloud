@@ -55,7 +55,8 @@ function draw() {
         const img = item[imgIndex]
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex].classList.add('vis')
-        console.log(itemIndex,itemIndexPrecise, items[itemIndex].length + '[' + imgIndex + ']');
+        console.log(`${itemIndex},${itemIndexPrecise}, ${item.length}[${imgIndex}]`)
+        console.log(Math.floor((1 - (itemIndex - itemIndexPrecise)) , item.length))
         if (img.complete) {
             canvas.width = img.naturalWidth
             canvas.height = img.naturalHeight
