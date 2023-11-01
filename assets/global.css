@@ -56,7 +56,7 @@ form {
 }
 
 form {
-
+    padding: 1em;
     height: 3em;
     line-height: 3em;
 }

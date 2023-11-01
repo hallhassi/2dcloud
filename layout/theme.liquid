@@ -35,11 +35,12 @@
 
     {% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}
     <details class="item" data-handle="{{ product.handle }}" data-id ="{{ product.id }}">
-        <summary><div>{{ product.title }} <br>{% if product.compare_at_price > product.price %}<s>${{ product.compare_at_price | divided_by:100.00 | ceil }}</s> {% endif %}{% for variant in product.variants %}{% if variant.available %}${{ product.price | divided_by:100.00 | ceil }}</div>{% endif %}{% endfor %}</summary>
+        <summary>{{ product.title }} <br>{% if product.compare_at_price > product.price %}<s>${{ product.compare_at_price | divided_by:100.00 | ceil }}</s> {% endif %}{% for variant in product.variants %}{% if variant.available %}${{ product.price | divided_by:100.00 | ceil }}{% endif %}{% endfor %}</summary>
         {% if product.has_only_default_variant %}
             <button data-id="{{ variant.id}}" data-price="{{ variant.price }}" class="buy">buy</button>
         {% else %}
-            {% for variant in product.variants %}{% if variant.available %}<button data-id="{{ variant.id}}" data-price="{{ variant.price }}" class="buy">{% assign vsplits = variant.title | split: " " %}{% for vsplit in vsplits %}{{ vsplit | slice: 0 | upcase }}{% endfor %}</button>{% endif %}{%endfor %}        {% endif %}
+            {% for variant in product.variants %}{% if variant.available %}<button data-id="{{ variant.id}}" data-price="{{ variant.price }}" class="buy">{% assign vsplits = variant.title | split: " " %}{% for vsplit in vsplits %}{{ vsplit | slice: 0 | upcase }}{% endfor %}</button>{% endif %}{%endfor %}
+        {% endif %}
         {% for media in product.media %}{% case media.media_type %}{% when 'video' %}{{ media | video_tag: controls:
         true, image_size: "1280x" }}`{% when 'image' %}<img src='{{ media | image_url: width: 1280}}'>{% endcase %}{%
         endfor %}

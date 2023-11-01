@@ -33,6 +33,7 @@ video {
 
 details[open] {
   overflow: scroll;
+  max-width: 36em;
 }
 
 .item {
@@ -41,13 +42,10 @@ details[open] {
   top: 0;
   display: none;
   z-index: 1;
-}
-
-.item>p {
-  max-width: 36em;
+  height: 100vh;
 }
 
 #cart {
   bottom: 0;
-  right: 0;
+  left: 0;
 }
