@@ -30,10 +30,12 @@ details.item button {
 details.item[open] button {
     display: block;
 }
-
-.item summary,
-form {
+.item summary {
     margin-bottom: 1em;
+}
+
+form {
+    margin: 1em 0;
 }
 
 summary {
@@ -47,8 +49,9 @@ form {
 }
 
 .item button {
-    flex-grow: 1;
-    padding: 0 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 100%;
 }
 
 form {
@@ -70,7 +73,7 @@ summary button {
 }
 
 #cart {
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     left: 0;
 }
