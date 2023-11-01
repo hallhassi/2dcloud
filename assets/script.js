@@ -1,4 +1,3 @@
-
 const added = document.getElementsByClassName('added')
 const items = document.querySelectorAll('.item')
 const cart = document.querySelector('#cart')
@@ -59,6 +58,7 @@ function draw() {
         const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
         if (spaceForDetails > minTextWidth) {
             items[itemIndex].style.width = `${spaceForDetails}px`
+            cart.style.width = `${spaceForDetails}px`
         }
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
