@@ -54,7 +54,7 @@ if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
         if (img.productId == parseInt(productid)) {
             img.addEventListener("load", handleLoad)
-            window.scrollTo({top: (imgIndex / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
+            window.scrollTo({top: (i / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
             return
         }
     })
