@@ -55,6 +55,7 @@ if (typeof productid == 'number') {
         if (img.productId == parseInt(productid)) {
             img.addEventListener("load", handleLoad)
             window.scrollTo({top: (i / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
+            console.log(1);
             return
         }
     })
@@ -64,6 +65,7 @@ function handleLoad() {
     imgIndex = this.imgIndex
     pushState(imgArray[imgIndex].handle)
     draw()
+    console.log(2);
 }
 
 
