@@ -20,14 +20,11 @@ const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
-let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 const fontSize = parseInt(window.getComputedStyle(header).fontSize)
 const minTextWidth = 12 * fontSize
-
-
-
 const scrollStep = 25
 const initialOffset = window.scrollY + header.getBoundingClientRect().top
+let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 
 
 // build array
