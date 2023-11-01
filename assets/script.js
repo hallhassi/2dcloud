@@ -47,10 +47,10 @@ spacer.style.height = imgArray.length * scrollStep + document.documentElement.cl
 
 // '/product/[...]'
 
-if (typeof productid !== 'undefined') {
+if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
-        img.addEventListener("load", handleLoad)
         if (img.dataset.id == productid) {
+            img.addEventListener("load", handleLoad)
             window.scrollTo(0, (i / items.length * scrollableHeight) + 1)
             pushState(img.dataset.handle)
         }
