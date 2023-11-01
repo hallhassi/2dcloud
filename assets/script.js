@@ -35,7 +35,6 @@ Array.from(items).forEach((item, itemIndex) => {
 })
 
 
-
 // set window height ...
 
 const scrollStep = 25
