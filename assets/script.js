@@ -24,7 +24,7 @@ const minTextWidth = 12 * fontSize
 // build array
 
 const imgArray = []
-Array.from(items).forEach((item, itemIndex) => {
+Array.from(items).slice(1).forEach((item, itemIndex) => {
     Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
         img.itemIndex = itemIndex
         img.imgIndex = imgIndex
@@ -46,7 +46,7 @@ let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 
 
-// '/product/[...]'
+// routing
 
 if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
@@ -57,7 +57,7 @@ if (typeof productid == 'number') {
             return
         }
     })
-}
+} else imgArray[0].addEventListener("load", handleLoad)
 
 function handleLoad() {
     imgIndex = this.imgIndex
@@ -95,8 +95,6 @@ function draw() {
         }
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
-}
-
 
 
 
