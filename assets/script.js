@@ -14,8 +14,7 @@ const details = Array.from(document.querySelectorAll('details'))
 const canvas = document.querySelector('canvas#canvas')
 const context = canvas.getContext("2d")
 const windowHeight = window.innerHeight
-const documentHeight = document.documentElement.scrollHeight
-const scrollableHeight = documentHeight - windowHeight
+const scrollableHeight = document.documentElement.scrollHeight - windowHeight
 const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
@@ -51,7 +50,7 @@ if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
         if (img.dataset.id == productid) {
             img.addEventListener("load", handleLoad)
-            window.scrollTo(0, (i / items.length * scrollableHeight) + 1)
+            window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
             pushState(img.dataset.handle)
         }
     })
