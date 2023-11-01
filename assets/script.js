@@ -54,18 +54,14 @@ if (typeof productid == 'number') {
             img.addEventListener("load", handleLoad)
             window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
             pushState(productId)
+            return
         }
     })
 }
 
-
 function handleLoad() {
     imgIndex = this.imgIndex
     draw()
-    imgArray.forEach(img => {
-        img.removeEventListener("load", handleLoad)
-    })
-    console.log('loaded');
 }
 
 
