@@ -33,7 +33,6 @@ Array.from(items).forEach(item => {
     const images = []
     Array.from(item.querySelectorAll('img')).forEach((img, index) => {
         img.index = index
-        img.addEventListener("load", handleLoad)
         images.push(img)
     })
     itemArray.push(images)
