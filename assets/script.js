@@ -17,6 +17,7 @@ const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
+let productId = undefined
 const fontSize = parseInt(window.getComputedStyle(header).fontSize)
 const minTextWidth = 12 * fontSize
 
