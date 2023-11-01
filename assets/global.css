@@ -30,9 +30,6 @@ details.item button {
 details.item[open] button {
     display: block;
 }
-.item summary {
-    margin-bottom: 1em;
-}
 
 form {
     margin: 1em 0;
@@ -73,8 +70,8 @@ summary button {
 
 #checkbox {
     position: fixed;
-    top: 0;
-    right: 0;
+    bottom: 0;
+    left: 0;
     margin: 1em;
     z-index: 1;
 }
