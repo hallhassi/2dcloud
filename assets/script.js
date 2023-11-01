@@ -51,7 +51,7 @@ function draw() {
     const itemIndex = Math.ceil(itemIndexPrecise)
     const item = itemArray[itemIndex]
     if (item !== undefined) {
-        const imgIndex = Math.floor((1 - itemIndex - itemIndexPrecise) * item.length)
+        const imgIndex = Math.floor((1 - (itemIndex - itemIndexPrecise)) * item.length)
         const img = item[imgIndex]
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex].classList.add('vis')
