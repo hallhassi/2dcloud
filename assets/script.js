@@ -96,8 +96,7 @@ function draw() {
         }
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
-
-
+}
 
 
 // checkbox
