@@ -26,7 +26,6 @@ const minTextWidth = 12 * fontSize
 const imgArray = []
 Array.from(items).forEach((item, itemIndex) => {
     Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
-        console.log(img);
         img.itemIndex = itemIndex
         img.imgIndex = imgIndex
         img.productId = item.dataset.id
