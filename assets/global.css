@@ -30,6 +30,8 @@ form {
 #cart {
     z-index: 2;
     position: fixed;
+    max-height: 100%;
+    overflow: scroll;
 }
 
 #checkbox {

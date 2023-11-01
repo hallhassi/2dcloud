@@ -17,7 +17,7 @@ const windowHeight = window.innerHeight
 const documentHeight = document.documentElement.scrollHeight
 const scrollableHeight = documentHeight - windowHeight
 const closeItems = () => Array.from(items).forEach(item => item.open = false)
-let previousItemIndex, previousImage
+let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
 const fontSize = parseInt(window.getComputedStyle(header).fontSize)
@@ -48,19 +48,26 @@ function draw() {
     const imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
     const itemIndex = img.index
-    items.forEach(item => item.classList.remove('vis'))
-    items[itemIndex].classList.add('vis')
-    if (img !== undefined && img.complete) {
-        canvas.width = img.naturalWidth
-        canvas.height = img.naturalHeight
-        context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-        canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
-        if (spaceForDetails > minTextWidth) {
-            items[itemIndex].style.width = `${spaceForDetails}px`
-            cart.style.width = `${spaceForDetails}px`
+    if (item !== undefined && previousItemIndex != itemIndex) {
+        previousItemIndex = itemIndex
+        items.forEach(item => item.classList.remove('vis'))
+        items[itemIndex].classList.add('vis')
+        if (img !== undefined && img.complete && previousImgIndex != imgIndex) {
+            previousImgIndex = imgIndex
+            canvas.width = img.naturalWidth
+            canvas.height = img.naturalHeight
+            context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
+            canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
+            const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
+            if (spaceForDetails > minTextWidth) {
+                items[itemIndex].style.width = `${spaceForDetails}px`
+                cart.style.width = `${spaceForDetails}px`
+            } else {
+                items[itemIndex].style.width = 'auto'
+                cart.style.width = 'auto'
+            }
+            console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
         }
-        console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
 }
 
