@@ -55,6 +55,7 @@ if (typeof productid !== 'undefined') {
             pushState(img.dataset.handle)
         }
     })
+    console.log(productid);
 }
 
 
@@ -64,6 +65,7 @@ function handleLoad() {
     imgArray.forEach(img => {
         img.removeEventListener("load", handleLoad)
     })
+    console.log('loaded');
 }
 
 
