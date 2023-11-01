@@ -61,7 +61,7 @@ if (typeof productid == 'number') {
 
 function handleLoad() {
     imgIndex = this.imgIndex
-    window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
+    window.scrollTo(0, (imgIndex / imgArray.length * scrollableHeight) + 1)
     pushState(img.handle)
     draw()
 }
