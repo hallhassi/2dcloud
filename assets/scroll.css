@@ -30,6 +30,10 @@ details[open] button {
   max-width: 36em;
 }
 
+summary {
+  max-width: calc(100vw - 4em);
+}
+
 .item {
   position: fixed;
   left: 0;
