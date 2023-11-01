@@ -50,11 +50,10 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
-        console.log(img.dataset.id, productid);
         if (img.productId == productid) {
             img.addEventListener("load", handleLoad)
             window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
-            pushState(img.dataset.handle)
+            pushState(productId)
         }
     })
 }
