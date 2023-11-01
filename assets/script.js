@@ -30,16 +30,17 @@ let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 // build array
 
 const imgArray = []
-Array.from(items).forEach((item, index) => {
-    Array.from(item.querySelectorAll('img')).forEach(img => {
-        img.index = index
+Array.from(items).forEach((item, itemIndex) => {
+    Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
+        img.itemIndex = itemIndex
+        img.imgIndex = imgIndex
         img.addEventListener("load", handleLoad)
         imgArray.push(img)
     })
 })
 
 function handleLoad() {
-    imgIndex = this.index
+    imgIndex = this.imgIndex
     draw()
     imgArray.forEach(img => {
         img.removeEventListener("load", handleLoad)
