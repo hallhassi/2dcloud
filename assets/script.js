@@ -52,8 +52,9 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
-        if (img.productId == productid) {
+        if (img.productId == parseInt(productid)) {
             img.addEventListener("load", handleLoad)
+            window.scrollTo({top: (imgIndex / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
             return
         }
     })
@@ -61,7 +62,6 @@ if (typeof productid == 'number') {
 
 function handleLoad() {
     imgIndex = this.imgIndex
-    window.scrollTo({top: (imgIndex / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
     pushState(imgArray[imgIndex].handle)
     draw()
 }
