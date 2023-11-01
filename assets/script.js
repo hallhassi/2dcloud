@@ -61,7 +61,6 @@ function draw() {
         const spaceForDetails = window.innerWidth - canvas.getBoundingClientRect().width
         if (spaceForDetails > minTextWidth) {
             items[itemIndex].style.width = `${spaceForDetails}px`
-            cart.style.width = `${spaceForDetails}px`
         }
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }

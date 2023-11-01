@@ -43,10 +43,11 @@ details[open] {
   z-index: 1;
 }
 
-.item>* {
+.item>p {
   max-width: 36em;
 }
 
 #cart {
   bottom: 0;
+  right: 0;
 }
