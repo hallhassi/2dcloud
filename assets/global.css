@@ -23,11 +23,6 @@ details {
     padding: 1em;
 }
 
-details[open] {
-    max-hwight: 100%;
-    overflow: scroll;
-}
-
 details.item button {
     display: none;
 }

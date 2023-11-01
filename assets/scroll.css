@@ -1,12 +1,15 @@
 body {
   height: var(--height);
 }
-body > .vis {
+
+body>.vis {
   display: initial;
 }
+
 img {
   display: none;
 }
+
 canvas {
   margin: auto;
   z-index: -1;
@@ -15,25 +18,38 @@ canvas {
   bottom: 0;
   right: 0;
 }
-#cart,video {
+
+#cart,
+video {
   max-height: 50vh;
 }
+
 #display {
   max-width: 50%;
   position: fixed;
   left: 0;
   top: 0;
 }
+
+details[open] {
+  overflow: scroll;
+}
+
 .item {
-  max-width: 50%;
   position: fixed;
   left: 0;
   top: 0;
   display: none;
 }
+
+.item>* {
+  max-width: 36em;
+}
+
 #cart {
   bottom: 0;
 }
+
 .item summary {
   max-width: calc(100vw - 4em);
 }

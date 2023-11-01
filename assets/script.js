@@ -21,7 +21,7 @@ const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImage
 let storedHandle
 let clearCode, firstPass = true
-const fontSize = window.getComputedStyle(header).fontSize
+const fontSize = parseInt(window.getComputedStyle(header).fontSize)
 const minTextWidth = 16 * fontSize
 
 
