@@ -137,7 +137,7 @@
         {% for media in product.media %}
           {% case media.media_type %}
             {% when 'video' %}
-              {{ media | video_tag: controls: true, image_size: '1280x' }}`
+              {{ media | video_tag: controls: true, image_size: '128x' }}`
             {% when 'image' %}
               <img src="{{ media | image_url: width: 1280}}">
           {% endcase %}

@@ -26,7 +26,6 @@ const minTextWidth = 12 * fontSize
 
 
 const scrollStep = 25
-spacer.style.height = items.length * scrollStep + document.documentElement.clientHeight + 'px'
 const initialOffset = window.scrollY + header.getBoundingClientRect().top
 
 
@@ -39,6 +38,9 @@ Array.from(items).forEach((item, index) => {
         imgArray.push(img)
     })
 })
+
+spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
+
 
 
 window.addEventListener('scroll', draw, { passive: true });
