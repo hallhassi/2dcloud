@@ -139,7 +139,7 @@
             {% when 'video' %}
               {{ media | video_tag: controls: true, image_size: '128x' }}`
             {% when 'image' %}
-              <img src="{{ media | image_url: width: 1280}}">
+              <img src="{{ media | image_url: width: 128}}">
           {% endcase %}
         {% endfor %}
         {{ product.description }}

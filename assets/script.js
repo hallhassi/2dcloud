@@ -50,9 +50,10 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 // routing
 
-if (typeof productid == 'number') {
+if (typeof productId == 'number') {
+    console.log(0);
     imgArray.forEach((img, i) => {
-        if (img.productId == parseInt(productid)) {
+        if (img.productId == parseInt(productId)) {
             img.addEventListener("load", handleLoad)
             window.scrollTo({top: (i / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
             console.log(1);
