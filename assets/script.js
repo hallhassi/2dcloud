@@ -25,7 +25,7 @@ const minTextWidth = 12 * fontSize
 // build array
 
 const imgArray = []
-Array.from(items).slice(1).forEach((item, itemIndex) => {
+Array.from(items).forEach((item, itemIndex) => {
     Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
         img.itemIndex = itemIndex
         img.imgIndex = imgIndex
