@@ -1,8 +1,4 @@
-body {
-  height: var(--height);
-}
-
-body>.vis {
+.vis {
   display: initial;
 }
 
@@ -17,18 +13,12 @@ canvas {
   top: 0;
   bottom: 0;
   right: 0;
+  left: 0;
 }
 
 #cart,
 video {
   max-height: 50vh;
-}
-
-#display {
-  max-width: 50%;
-  position: fixed;
-  left: 0;
-  top: 0;
 }
 
 details[open] {
@@ -55,4 +45,11 @@ details[open] button {
 #cart {
   top: 0;
   right: 0;
+}
+
+#display {
+  max-width: 50%;
+  position: fixed;
+  left: 0;
+  top: 0;
 }

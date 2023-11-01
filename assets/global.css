@@ -19,20 +19,31 @@ details {
     background: red;
 }
 
-details {
+details, form, #checkbox {
     padding: 1em;
-}
-
-details.item button {
-    display: none;
-}
-
-details.item[open] button {
-    display: block;
 }
 
 form {
     margin: 1em 0;
+}
+
+#cart {
+    z-index: 2;
+    position: fixed;
+}
+
+#checkbox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+img,
+canvas,
+video {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .item button,
@@ -47,42 +58,6 @@ form {
     width: 100%;
 }
 
-form {
-    padding: 1em;
-}
-
-#cart button {
-    margin-right: 1em;
-}
-
-summary button {
-    margin-left: 1em;
-}
-
 #cart input.qty {
     width: 2em;
-}
-
-#cart {
-    z-index: 2;
-    position: fixed;
-}
-
-#checkbox {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin: 1em;
-    z-index: 1;
-}
-
-img,
-canvas,
-video {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-video {
-    display: block;
 }
