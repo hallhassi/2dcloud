@@ -49,7 +49,3 @@ details[open] {
 #cart {
   bottom: 0;
 }
-
-.item summary {
-  max-width: calc(100vw - 4em);
-}

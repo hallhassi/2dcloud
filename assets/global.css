@@ -31,7 +31,7 @@ details.item[open] button {
     display: block;
 }
 
-summary,
+.item summary,
 form {
     margin-bottom: 1em;
 }
@@ -70,6 +70,7 @@ summary button {
 }
 
 #cart {
+    z-index: 1;
     position: fixed;
     left: 0;
 }

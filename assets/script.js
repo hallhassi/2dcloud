@@ -59,7 +59,10 @@ function draw() {
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
         const spaceForDetails = window.innerWidth - canvas.getBoundingClientRect().width
-        if (spaceForDetails > minTextWidth) items[itemIndex].style.width = `${spaceForDetails}px`
+        if (spaceForDetails > minTextWidth) {
+            items[itemIndex].style.width = `${spaceForDetails}px`
+            cart.style.width = `${spaceForDetails}px`
+        }
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
 }
