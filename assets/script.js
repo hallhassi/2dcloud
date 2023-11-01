@@ -13,8 +13,7 @@ const summaries = Array.from(document.querySelectorAll('summary'))
 const details = Array.from(document.querySelectorAll('details'))
 const canvas = document.querySelector('canvas#canvas')
 const context = canvas.getContext("2d")
-const windowHeight = window.innerHeight
-const scrollableHeight = document.documentElement.scrollHeight - windowHeight
+const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
