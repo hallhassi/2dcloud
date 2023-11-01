@@ -30,8 +30,13 @@ details[open] button {
   max-width: 36em;
 }
 
-summary {
+.item summary {
   max-width: calc(100vw - 4em);
+}
+
+#cart summary {
+  text-align: right;
+  width: 100%;
 }
 
 .item {
