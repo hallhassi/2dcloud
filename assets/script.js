@@ -28,7 +28,6 @@ document.body.append(spacer)
 // build array of images
 const scrollStep = 20
 const initialOffset = window.scrollY + header.getBoundingClientRect().top
-let itemIndex = Math.max(0, Math.ceil((window.scrollY - initialOffset) / scrollStep))
 const itemArray = []
 Array.from(items).forEach(item => {
     const images = []
@@ -42,19 +41,6 @@ Array.from(items).forEach(item => {
 
 spacer.style.height = items.length * scrollStep + document.documentElement.clientHeight + 'px'
 
-
-function handleLoad() {
-    itemIndex = this.index
-    draw()
-    itemArray.forEach(item => {
-        item.forEach(image => {
-            image.removeEventListener("load", handleLoad)
-        })
-
-    })
-}
-
-
 window.addEventListener('scroll', onScrub, { passive: true });
 function onScrub() {
     draw()
@@ -62,16 +48,15 @@ function onScrub() {
 
 
 function draw() {
+    const itemIndexPrecise = (window.scrollY - initialOffset) / scrollStep
+    const itemIndex = Math.ceil(itemIndexPrecise)
     const item = itemArray[itemIndex]
     if (item !== undefined) {
-        const itemIndexPrecise = (window.scrollY - initialOffset) / scrollStep
-        const itemIndexGeneric = Math.ceil(itemIndexPrecise)
-        itemIndex = Math.max(0, itemIndexGeneric)
+        const imgIndex = Math.floor((1 - itemIndex - itemIndexPrecise) * item.length)
+        const img = item[imgIndex]
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex].classList.add('vis')
-        const imgIndex = Math.floor(1 - (itemIndexGeneric - itemIndexPrecise) * item.length)
-        const img = item[imgIndex]
-        console.log(itemIndex, itemIndexGeneric,itemIndexPrecise, imgIndex, img);
+        console.log(itemIndex,itemIndexPrecise, items[itemIndex].length + '[' + imgIndex + ']');
         if (img.complete) {
             canvas.width = img.naturalWidth
             canvas.height = img.naturalHeight
