@@ -42,10 +42,8 @@ Array.from(items).forEach((item, index) => {
 })
 
 
-window.addEventListener('scroll', onScrub, { passive: true });
-function onScrub() {
-    draw()
-}
+window.addEventListener('scroll', draw, { passive: true });
+window.addEventListener('resize', draw);
 
 function draw() {
     const imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
@@ -61,7 +59,6 @@ function draw() {
         const spaceForDetails = window.innerWidth - canvas.getBoundingClientRect().width
         if (spaceForDetails > minTextWidth) {
             items[itemIndex].style.width = `${spaceForDetails}px`
-            cart.style.width = `${spaceForDetails}px`
         }
         console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
@@ -91,10 +88,11 @@ function checkboxFunction() {
     if (checkbox.checked) {
         window.addEventListener('scroll', scroll)
         stylesheet.href = checkbox.dataset.scroll
-    }
-    else {
+        spacer.style.display = 'initial'
+    } else {
         window.removeEventListener('scroll', scroll)
         stylesheet.href = checkbox.dataset.list
+        spacer.style.display = 'none'
     }
 }
 
