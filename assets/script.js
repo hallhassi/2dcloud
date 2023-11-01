@@ -41,8 +41,8 @@ Array.from(items).forEach((item, index) => {
 function handleLoad() {
     imgIndex = this.index
     draw()
-    images.forEach(image => {
-        image.removeEventListener("load", handleLoad)
+    imgArray.forEach(img => {
+        img.removeEventListener("load", handleLoad)
     })
 }
 
