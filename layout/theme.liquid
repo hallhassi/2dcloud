@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+
+<head>
+    <title>2dcloud.com</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <style>
+        :root{--height:calc({% assign i = 0 %}{% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}{% assign i = i | plus: 1 %}{% endfor %}{% endpaginate %}{{ i }} * 100px);}
+    </style>
+    {{ 'global.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" class="switch" href="{{ 'scroll.css' | asset_url }}">
+    {{content_for_header}}
+</head>
+
+<body>
+    <script>const listcss = "{{ 'list.css' | asset_url}}"; const scrollcss = "{{ 'scroll.css' | asset_url}}"</script>
+    <header id="header"></header>
+    <input id="checkbox" checked type="checkbox" data-scroll="{{ 'scroll.css' | asset_url}}" data-list="{{ 'list.css' | asset_url}}">
+    <details id="cart" class="hidden" hidden>
+        <summary id="total"></summary>
+        <form class="checkout" action="/cart" method="post" novalidate><input type="submit" name="checkout"
+                value="checkout"></form>
+        {% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}
+        {% if product.has_only_default_variant %} <div class="hidden" hidden><input class="qty" value="1"
+                type="tel">{% for variant in product.variants %}{% if variant.available %}<button
+                data-id="{{ variant.id}}" data-price="{{ variant.price }}" class="buy">remove </button>{% endif %}{%
+            endfor %}${{ product.price | | divided_by:100.00 | ceil }} {{ product.title }}</div>
+        {% else %}{% for variant in product.variants %}{% if variant.available %}<div class="hidden" hidden><input
+                class="qty" value="1"><button data-id="{{ variant.id}}" data-price="{{ variant.price }}"
+                class="buy">remove </button>${{ product.price | | divided_by:100.00 | ceil }} {{ product.title }} {% assign vsplits = variant.title | split: " " %}{% for
+            vsplit in vsplits %}{{ vsplit | slice: 0 | upcase }}{% endfor %}</div>{% endif
+        %}{% endfor %}{% endif %}
+        {% endfor %}{% endpaginate %}
+    </details>
+
+    {% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}
+    <details class="item" data-handle="{{ product.handle }}" data-id ="{{ product.id }}">
+        {% if product.has_only_default_variant %}
+          <summary><div>{{ product.title }} <br>{% if product.compare_at_price > product.price %}<s>${{ product.compare_at_price | divided_by:100.00 | ceil }}</s> {% endif %}{% for variant in product.variants %}{% if variant.available %}${{ product.price | divided_by:100.00 | ceil }}</div><button data-id="{{ variant.id}}" data-price="{{ variant.price }}" class="buy">buy</button>{% endif %}{% endfor %}</summary>
+        {% else %}
+          <summary><div>{{ product.title }} <br>{% if product.compare_at_price > product.price %}<s>${{ product.compare_at_price | divided_by:100.00 | ceil }}</s> {% endif %}${{ product.price | divided_by:100.00 | ceil }}</div>{% for variant in product.variants %}{% if variant.available %}<button data-id="{{ variant.id}}" data-price="{{ variant.price }}" class="buy">{% assign vsplits = variant.title | split: " " %}{% for vsplit in vsplits %}{{ vsplit | slice: 0 | upcase }}{% endfor %}</button>{% endif %}{%endfor %}</summary>
+        {% endif %}
+
+        {% for media in product.media %}{% case media.media_type %}{% when 'video' %}{{ media | video_tag: controls:
+        true, image_size: "1280x" }}`{% when 'image' %}<img src='{{ media | image_url: width: 1280}}'>{% endcase %}{%
+        endfor %}
+        {{ product.description }}
+    </details>
+    {% endfor %}{% endpaginate %}
+
+    <canvas id="canvas"></canvas>
+    {{ content_for_layout }}
+    {{ "script.js" | asset_url | script_tag }}
+</body>
+
+</html>
