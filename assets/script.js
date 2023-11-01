@@ -106,42 +106,6 @@ function checkboxFunction() {
 
 // scroll
 
-
-
-
-// scroll()
-// window.addEventListener('scroll', scroll, { passive: true })
-
-// function scroll() {
-//     const scrolledHeight = document.documentElement.scrollTop
-//     const percentScrolled = Math.min((scrolledHeight / scrollableHeight), .9999)
-//     const currentItemIndexFloat = items.length * percentScrolled
-//     const currentItemIndex = Math.floor(currentItemIndexFloat)
-//     const currentImages = Array.from(items[currentItemIndex].querySelectorAll('img'))
-//     const currentImageIndex = Math.floor(currentImages.length * (currentItemIndexFloat - currentItemIndex))
-//     const currentImage = currentImages[currentImageIndex]
-//     if (previousItemIndex !== currentItemIndex) {
-//         previousItemIndex = currentItemIndex
-//         items.forEach(item => item.classList.remove('vis'))
-//         items[currentItemIndex].classList.add('vis')
-//         closeItems()
-//     }
-//     if (previousImage != currentImage) {
-//         previousImage = currentImage
-//         canvas.width = currentImage.naturalWidth
-//         canvas.height = currentImage.naturalHeight
-//         context.drawImage(currentImage, 0, 0, currentImage.naturalWidth, currentImage.naturalHeight)
-//         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-//     }
-// }
-
-// if (clearCode != undefined) clearInterval(clearCode)
-// else clearCode = setInterval(scroll, 500)
-
-
-
-// pushstate and close items
-
 window.addEventListener('click', (e) => {
     if (history.state) storedHandle = history.state.handle
     if (e.target.parentNode.dataset?.handle !== storedHandle) {
