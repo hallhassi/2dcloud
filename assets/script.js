@@ -21,7 +21,8 @@ const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImage
 let storedHandle
 let clearCode, firstPass = true
-
+const fontSize = window.getComputedStyle(header).fontSize
+const minTextWidth = 16 * fontSize
 
 
 
@@ -50,14 +51,16 @@ function draw() {
     const imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
     const itemIndex = img.index
+    items.forEach(item => item.classList.remove('vis'))
+    items[itemIndex].classList.add('vis')
+    const spaceForDetails = window.innerWidth - canvas.getBoundingClientRect().width
+    if (spaceForDetails > minTextWidth) items[itemIndex].width = spaceForDetails
     if (img !== undefined && img.complete) {
         canvas.width = img.naturalWidth
         canvas.height = img.naturalHeight
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        items.forEach(item => item.classList.remove('vis'))
-        items[itemIndex].classList.add('vis')
-        console.log(`${imgArray.length}[${imgIndex}] ${item.length}[${imgIndex}]`)
+        console.log(`${imgArray.length}[${imgIndex}]`)
         console.log(`${window.scrollY}`)
     }
 }

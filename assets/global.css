@@ -1,6 +1,7 @@
 * {
     font-size: inherit;
     font-weight: normal;
+    box-sizing: border-box;
 }
 
 button,
