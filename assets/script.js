@@ -71,6 +71,7 @@ function draw() {
         items[itemIndex].classList.add('vis')
         const imgIndex = Math.floor(1 - (itemIndexGeneric - itemIndexPrecise) * item.length)
         const img = item[imgIndex]
+        console.log(itemIndex, itemIndexGeneric,itemIndexPrecise, imgIndex, img);
         if (img.complete) {
             canvas.width = img.naturalWidth
             canvas.height = img.naturalHeight
