@@ -22,7 +22,7 @@ let previousItemIndex, previousImage
 let storedHandle
 let clearCode, firstPass = true
 const fontSize = parseInt(window.getComputedStyle(header).fontSize)
-const minTextWidth = 16 * fontSize
+const minTextWidth = 12 * fontSize
 
 
 
@@ -56,7 +56,7 @@ function draw() {
         canvas.height = img.naturalHeight
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        const spaceForDetails = window.innerWidth - canvas.getBoundingClientRect().width
+        const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
         if (spaceForDetails > minTextWidth) {
             items[itemIndex].style.width = `${spaceForDetails}px`
         }
