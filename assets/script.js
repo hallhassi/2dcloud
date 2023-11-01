@@ -78,7 +78,7 @@ function draw() {
 // '/product/[...]'
 
 if (typeof productid !== 'undefined') {
-    Array.from(items).forEach((item, i) => {
+    items.forEach((item, i) => {
         if (item.dataset.id == productid) {
             window.scrollTo(0, (i / items.length * scrollableHeight) + 1)
             pushState(item.dataset.handle)
