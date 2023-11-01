@@ -36,11 +36,11 @@ Array.from(items).forEach((item, itemIndex) => {
 
 // set window height ...
 
+const scrollStep = 25
 spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
 
 // and window height dependent variables 
 
-const scrollStep = 25
 const initialOffset = window.scrollY + header.getBoundingClientRect().top
 let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
