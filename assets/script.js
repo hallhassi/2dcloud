@@ -13,16 +13,12 @@ const summaries = Array.from(document.querySelectorAll('summary'))
 const details = Array.from(document.querySelectorAll('details'))
 const canvas = document.querySelector('canvas#canvas')
 const context = canvas.getContext("2d")
-const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 const closeItems = () => Array.from(items).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
 const fontSize = parseInt(window.getComputedStyle(header).fontSize)
 const minTextWidth = 12 * fontSize
-const scrollStep = 25
-const initialOffset = window.scrollY + header.getBoundingClientRect().top
-let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 
 
 // build array
@@ -38,9 +34,16 @@ Array.from(items).forEach((item, itemIndex) => {
 
 
 
-// set window height
+// set window height ...
 
 spacer.style.height = imgArray.length * scrollStep + document.documentElement.clientHeight + 'px'
+
+// and window height dependent variables 
+
+const scrollStep = 25
+const initialOffset = window.scrollY + header.getBoundingClientRect().top
+let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
+const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 
 
 // '/product/[...]'
