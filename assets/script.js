@@ -30,6 +30,7 @@ Array.from(items).slice(1).forEach((item, itemIndex) => {
         img.itemIndex = itemIndex
         img.imgIndex = imgIndex
         img.productId = item.dataset.id
+        img.handle = item.dataset.handle
         imgArray.push(img)
     })
 })
@@ -53,8 +54,6 @@ if (typeof productid == 'number') {
     imgArray.forEach((img, i) => {
         if (img.productId == productid) {
             img.addEventListener("load", handleLoad)
-            window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
-            pushState(productId)
             return
         }
     })
@@ -62,6 +61,8 @@ if (typeof productid == 'number') {
 
 function handleLoad() {
     imgIndex = this.imgIndex
+    window.scrollTo(0, (i / imgArray.length * scrollableHeight) + 1)
+    pushState(img.handle)
     draw()
 }
 
