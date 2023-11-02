@@ -68,3 +68,7 @@ form {
 .item button {
     width: 100%;
 }
+
+#header a {
+    color: white;
+}
