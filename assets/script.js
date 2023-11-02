@@ -110,11 +110,11 @@ checkbox.addEventListener('change', checkboxFunction)
 if (window.location.pathname == '/list') checkbox.click();
 function checkboxFunction() {
     if (checkbox.checked) {
-        window.addEventListener('scroll', scroll)
+        window.addEventListener('scroll', draw)
         stylesheet.href = checkbox.dataset.scroll
         spacer.style.display = 'initial'
     } else {
-        window.removeEventListener('scroll', scroll)
+        window.removeEventListener('scroll', draw)
         stylesheet.href = checkbox.dataset.list
         spacer.style.display = 'none'
         details.forEach(d => d.style = "")

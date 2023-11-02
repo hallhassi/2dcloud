@@ -74,7 +74,8 @@
           {% for variant in product.variants %}
             {% if variant.available %}
               <div class="hidden" hidden>
-                <input class="qty" value="1"><button
+                <input class="qty" value="1">
+                <button
                   data-id="{{ variant.id}}"
                   data-price="{{ variant.price }}"
                   class="buy">
