@@ -21,7 +21,7 @@
     const products = []
     {% for product in collections.all.products %}
       {% for variant in product.variants %}
-        products.push({{variant}})
+        products.push({{variant | json }})
       {% endfor %}
     {% endfor %}
   </script>
