@@ -131,6 +131,7 @@ window.addEventListener('click', (e) => {
         pushState(e.target.parentNode.dataset.handle)
         closeItems()
     } else if (e.target.tagName == 'BODY') closeItems()
+    else if (e.target.parentNode.id == 'cart') closeItems()
 })
 
 function pushState(handle) {
