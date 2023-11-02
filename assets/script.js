@@ -127,7 +127,9 @@ if (history.state) storedHandle = history.state.handle
 
 // click on item
 
-document.body.addEventListener('click', () => closeItems())
+document.body.addEventListener('click', (e) => {
+    if (e.target == e.currentTarget) closeItems()
+})
 
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
