@@ -13,7 +13,7 @@ const summaries = Array.from(document.querySelectorAll('summary'))
 const details = Array.from(document.querySelectorAll('details'))
 const canvas = document.querySelector('canvas#canvas')
 const context = canvas.getContext("2d")
-const closeItems = () => Array.from(details).forEach(item => item.open = false)
+const closeDetails = () => Array.from(details).forEach(item => item.open = false)
 const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
 let storedHandle
@@ -128,19 +128,17 @@ if (history.state) storedHandle = history.state.handle
 // click on item
 
 document.body.addEventListener('click', (e) => {
-    if (e.target == e.currentTarget) closeItems()
+    if (e.target == e.currentTarget) closeDetails()
 })
 
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
         console.log(e.currentTarget, e.currentTarget.parentNode.open);
-        if (e.currentTarget.parentNode.dataset?.handle)
-            if (e.currentTarget.parentNode.dataset?.handle == storedHandle) closeCart()
-            else {
-                closeItems()
+        if (e.currentTarget.parentNode.dataset?.handle) {
+                closeDetails()
                 pushState(e.currentTarget.parentNode.dataset.handle)
             } 
-        else if (e.currentTarget.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeItems()
+        else if (e.currentTarget.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeDetails()
     })
 })
 
