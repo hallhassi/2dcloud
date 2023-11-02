@@ -19,12 +19,14 @@ details {
     background: red;
 }
 
-details, form, #checkbox {
-    padding: 1em;
+details, form,
+#header,
+.item button {
+    padding: 10px 1em;
 }
 
 form {
-    margin: 1em 0;
+    margin: 10px 0;
 }
 
 #cart {
@@ -41,13 +43,6 @@ form {
     margin-right: 1em;
 }
 
-#checkbox {
-    position: absolute;
-    right: 0;
-    z-index: 1;
-    margin: 1em;
-}
-
 img,
 canvas,
 video {
@@ -62,11 +57,6 @@ form {
 }
 
 .item button {
-    margin: 1em 0;
-    padding: 1em 0;
+    margin: 10px 0;
     width: 100%;
-}
-
-#header {
-    padding: 1em;
 }

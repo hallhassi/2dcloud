@@ -21,20 +21,18 @@
       const listcss = "{{ 'list.css' | asset_url}}";
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
   </script>
-  <details id="header">
-    <summary>
-      2dcloud <input
+  <div id="header">
+      <input
         id="checkbox"
         checked
         type="checkbox"
         data-scroll="{{ 'scroll.css' | asset_url}}"
         data-list="{{ 'list.css' | asset_url}}">
-    </summary>
     <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>
-    <a href="https://2dcloud.substack.com">2dcloud.substack.com</a>
-    <a href="https://x.com/2dcloud">https://x.com/2dcloud</a>
-    <a href="https://instagram.com/2d.cloud">https://instagram.com/2d.cloud</a>
-  </details>
+    <a href="https://2dcloud.substack.com">substack</a>
+    <a href="https://x.com/2dcloud">twitter</a>
+    <a href="https://instagram.com/2d.cloud">instagram</a>
+  </div>
   <main>
 
     {% comment %}

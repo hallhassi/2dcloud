@@ -65,4 +65,5 @@ details[open] button {
 main {
   position: sticky;
   top:0;
+  z-index: 1;
 }
