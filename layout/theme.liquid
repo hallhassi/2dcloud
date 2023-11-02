@@ -21,25 +21,7 @@
       const listcss = "{{ 'list.css' | asset_url}}";
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
   </script>
-  <header id="header" style=" 
-  color: white;
-  margin: 10px 20px 1em;
-  text-align: inherit;
-  ">
-    <a href="https://2dcloud.com/about">2dcloud</a>,
-    <a href="https://2dcloud.com/shop">Shop</a>,
-    {% for article in site.posts %}
-      {% if article.category == 'shop' %}
-      {% elsif article.category == "author" %}
-      {% elsif article.category == "explodingwrists" %}
-      {% elsif article.layout == "redirect" %}
-      {% elsif article.category == "notpublic" %}
-      {% else %}
-        {% if article.url != page.url %}<a href='{{site.baseurl}}{{article.url}}'>{% endif %}
-        {{ article.title }}{% if article.url != page.url %}</a>{% endif %},
-      {% endif %}
-    {% endfor %}
-  </header>
+  <header><a href="https://2dcloud.com/about">2dcloud</a> <a href="https://2dcloud.com/shop">Shop</a> <a href="/paul-peng-sketchbook">Sketchbook by Paul Peng</a> <a href="/margot-ferrick-sketchbook">Sketchbooks by Margot Ferrick</a> <a href="/blaise-larmee-sketchbook">Sketchbook by Blaise Larmee</a> <a href="/cake-2015">Cake 2015</a> <a href="/a-new-york-story">A New York Story</a> <a href="/tcaf-2015">TCAF 2015</a> <a href="/mocca-2015">MoCCA 2015</a> <a href="/aidan-koch-translations">Translations</a> <a href="/tommi-parrish-interview">Tommi Parrish</a> <a href="/leon-sadler-interview">Leon Sadler</a> <a href="/new-york-minute">New York Minute</a> <a href="/meags-fitzgerald-interview">Meags Fitzgerald</a> <a href="/julie-doucet-interview">Julie Doucet</a> <a href="/mike-dawson-interview">Mike Dawson</a> <a href="/marinaomi-apology-not-acceptable">Apology Not Acceptable</a> <a href="/zak-sally-interview">Zak Sally</a> <a href="/scott-longo-interview">Scott Longo</a> <a href="/moonbaby">Moonbaby</a> </header>
   {% comment %} <details id="header">
         <summary>2dcloud <input
             id="checkbox"
