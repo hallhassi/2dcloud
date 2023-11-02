@@ -129,13 +129,12 @@ if (history.state) storedHandle = history.state.handle
 
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
-        console.log(e.currentTarget, e.currentTarget.parentNode.open, e.target);
-        if (e.currentTarget.parentNode.dataset?.handle == storedHandle) closeCart()
-        else if (e.currentTarget.parentNode.dataset?.handle) {
-            closeItems()
-            pushState(e.currentTarget.parentNode.dataset.handle)
-        } 
-        else if (e.target.tagName == 'BODY') closeItems()
+        if (e.currentTarget.parentNode.dataset?.handle)
+            if (e.currentTarget.parentNode.dataset?.handle == storedHandle) closeCart()
+            else {
+                closeItems()
+                pushState(e.currentTarget.parentNode.dataset.handle)
+            } else if (e.target.tagName == 'BODY') closeItems()
         else if (e.currentTarget.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeItems()
     })
 })
