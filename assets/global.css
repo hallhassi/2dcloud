@@ -19,11 +19,6 @@ details {
     background: red;
 }
 
-.item button {
-    margin-right: 1em;
-    margin-left: 1em;
-}
-
 details, #header {
     padding-right: 1em;
     padding-left: 1em;
