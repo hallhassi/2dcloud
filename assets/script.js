@@ -134,6 +134,7 @@ document.body.addEventListener('click', (e) => {
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
         console.log(e.currentTarget, e.currentTarget.parentNode.open);
+        if (e.currentTarget.open == true) e.currentTarget.open = false
         if (e.currentTarget.parentNode.dataset?.handle) {
                 closeDetails()
                 pushState(e.currentTarget.parentNode.dataset.handle)
