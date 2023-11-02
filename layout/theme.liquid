@@ -156,7 +156,9 @@
       {% endfor %}
     {% endpaginate %}
   </main>
-  <canvas id="canvas"></canvas>
+  <div class="canvasWrapper">
+    <canvas id="canvas"></canvas>
+  </div>
   <div id="spacer"></div>
   {{ content_for_layout }}
   {{ 'script.js' | asset_url | script_tag }}
