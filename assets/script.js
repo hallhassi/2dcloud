@@ -24,13 +24,15 @@ const minTextWidth = 12 * fontSize
 // build array
 
 const imgArray = []
+let i = 0
 Array.from(items).forEach((item, itemIndex) => {
-    Array.from(item.querySelectorAll('img')).forEach((img, imgIndex) => {
+    Array.from(item.querySelectorAll('img')).forEach((img) => {
         img.itemIndex = itemIndex
-        img.imgIndex = imgIndex
+        img.imgIndex = i
         img.productId = item.dataset.id
         img.handle = item.dataset.handle
         imgArray.push(img)
+        i += 1
     })
 })
 
@@ -49,23 +51,14 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 // routing
 
-if (typeof productId == 'number') {
-    console.log(0);
-    imgArray.forEach((img, i) => {
-        if (img.productId == parseInt(productId)) {
-            img.addEventListener("load", handleLoad)
-            window.scrollTo({top: (i / imgArray.length * scrollableHeight) + 1, behavior: 'instant'})
-            console.log(1);
-            return
-        }
-    })
-} else imgArray[0].addEventListener("load", handleLoad)
+const img = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
+img.addEventListener("load", handleLoad)
+window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + 1, behavior: 'instant' })
 
 function handleLoad() {
     imgIndex = this.imgIndex
     pushState(imgArray[imgIndex].handle)
     draw()
-    console.log(2);
 }
 
 
