@@ -83,6 +83,7 @@ function draw() {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex].classList.add('vis')
+        details.forEach(details => details.open = false)
     }
     if (img !== undefined && img.complete && previousImgIndex != imgIndex) {
         previousImgIndex = imgIndex
@@ -116,6 +117,7 @@ function checkboxFunction() {
         window.removeEventListener('scroll', scroll)
         stylesheet.href = checkbox.dataset.list
         spacer.style.display = 'none'
+        details.forEach(d => d.style = "")
     }
 }
 

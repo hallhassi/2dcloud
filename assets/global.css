@@ -64,3 +64,11 @@ form {
 #cart input.qty {
     width: 2em;
 }
+
+#cart button {
+    margin-right: 1em;
+}
+
+#cart div {
+    white-space: nowrap;
+}

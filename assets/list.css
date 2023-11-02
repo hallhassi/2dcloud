@@ -1,2 +1,10 @@
-canvas {display:none;}
-#cart{position:sticky;top:0;left:0;right:0;}
+canvas {
+    display: none;
+}
+
+#cart {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
