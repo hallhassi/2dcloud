@@ -40,7 +40,7 @@ details[open] button {
 }
 
 .item {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   display: none;
@@ -56,9 +56,7 @@ details[open] button {
   right: 0;
 }
 
-#display {
-  max-width: 50%;
-  position: fixed;
-  left: 0;
-  top: 0;
+main {
+  position: sticky;
+  top:0;
 }

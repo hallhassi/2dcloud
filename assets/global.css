@@ -29,7 +29,7 @@ form {
 
 #cart {
     z-index: 2;
-    position: fixed;
+    position: absolute;
     overflow: scroll;
 }
 
