@@ -126,7 +126,8 @@ function checkboxFunction() {
 
 window.addEventListener('click', (e) => {
     if (history.state) storedHandle = history.state.handle
-    if (e.target.parentNode.dataset?.handle !== storedHandle) {
+    if (e.target.parentNode.dataset?.handle &&
+        e.target.parentNode.dataset?.handle !== storedHandle) {
         pushState(e.target.parentNode.dataset.handle)
         closeItems()
     } else if (e.target.tagName == 'BODY') closeItems()
