@@ -18,14 +18,6 @@
 
 <body>
   <script>
-    const products = []
-    {% for product in collections.all.products %}
-      {% for variant in product.variants %}
-        products.push({{variant | json }})
-      {% endfor %}
-    {% endfor %}
-  </script>
-  <script>
       const listcss = "{{ 'list.css' | asset_url}}";
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
   </script>
