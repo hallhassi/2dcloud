@@ -13,7 +13,7 @@ const summaries = Array.from(document.querySelectorAll('summary'))
 const details = Array.from(document.querySelectorAll('details'))
 const canvas = document.querySelector('canvas#canvas')
 const context = canvas.getContext("2d")
-const closeItems = () => Array.from(items).forEach(item => item.open = false)
+const closeItems = () => Array.from(details).forEach(item => item.open = false)
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
