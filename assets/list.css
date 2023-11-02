@@ -8,3 +8,8 @@ canvas {
     left: 0;
     right: 0;
 }
+
+#cart summary {
+    text-align: right;
+    width: 100%;
+}
