@@ -43,20 +43,20 @@
     <a href="/scott-longo-interview">Scott Longo</a>
     <a href="/moonbaby">Moonbaby</a>
     <input
-            id="checkbox"
-            checked
-            type="checkbox"
-            data-scroll="{{ 'scroll.css' | asset_url}}"
-            data-list="{{ 'list.css' | asset_url}}">
+      id="checkbox"
+      checked
+      type="checkbox"
+      data-scroll="{{ 'scroll.css' | asset_url}}"
+      data-list="{{ 'list.css' | asset_url}}">
   </div>
   {% comment %} <details id="header">
-            <summary>2dcloud 
-            </summary>
-            <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
-            <a href="https://2dcloud.substack.com">substack</a>,
-            <a href="https://x.com/2dcloud">twitter</a>,
-            <a href="https://instagram.com/2d.cloud">instagram</a>,
-      </details> {% endcomment %}
+                <summary>2dcloud 
+                </summary>
+                <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
+                <a href="https://2dcloud.substack.com">substack</a>,
+                <a href="https://x.com/2dcloud">twitter</a>,
+                <a href="https://instagram.com/2d.cloud">instagram</a>,
+        </details> {% endcomment %}
   <main>
 
     {% comment %}
@@ -133,13 +133,18 @@
           data-handle="{{ product.handle }}"
           data-id="{{ product.id }}">
           <summary>
-            {% if product.compare_at_price > product.price %}
-              <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
-            {% endif %}
-            {% if product.available %}
-              ${{ product.price | divided_by: 100.00 | ceil }} <br>
-            {% endif %}
-            {{ product.title }}
+            <div>
+              {% if product.compare_at_price > product.price %}
+                <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
+                <br>
+              {% endif %}
+              {% if product.available %}
+                ${{ product.price | divided_by: 100.00 | ceil }}
+              {% endif %}
+            </div>
+            <div>
+              {{ product.title }}
+            </div>
           </summary>
           {% if product.has_only_default_variant %}
             {% for variant in product.variants %}

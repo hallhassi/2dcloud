@@ -123,17 +123,19 @@ function checkboxFunction() {
 }
 
 
+if (history.state) storedHandle = history.state.handle
+
 // click on item
 
-window.addEventListener('click', (e) => {
-    if (history.state) storedHandle = history.state.handle
-    if (e.target.parentNode.dataset?.handle)
-        if (e.target.parentNode.dataset?.handle == storedHandle) closeCart()
-        else {
-        closeItems()
-        pushState(e.target.parentNode.dataset.handle)
-    } else if (e.target.tagName == 'BODY') closeItems()
-    else if (e.target.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeItems()
+Array.from(summaries).forEach(summary => {
+    summary.addEventListener('click', (e) => {
+        if (e.currentTarget.parentNode.dataset?.handle == storedHandle) closeCart()
+        else if (e.currentTarget.parentNode.dataset?.handle) {
+            closeItems()
+            pushState(e.currentTarget.parentNode.dataset.handle)
+        } else if (e.target.tagName == 'BODY') closeItems()
+        else if (e.currentTarget.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeItems()
+    })
 })
 
 function pushState(handle) {
