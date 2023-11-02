@@ -72,3 +72,8 @@ form {
 #header a {
     color: white;
 }
+
+summary {
+    display: flex;
+    grid-gap: 1ch;
+}

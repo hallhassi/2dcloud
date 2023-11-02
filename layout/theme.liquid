@@ -133,7 +133,7 @@
           data-handle="{{ product.handle }}"
           data-id="{{ product.id }}">
           <summary>
-            <div>
+            <div class="price">
               {% if product.compare_at_price > product.price %}
                 <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
                 <br>
@@ -142,7 +142,7 @@
                 ${{ product.price | divided_by: 100.00 | ceil }}
               {% endif %}
             </div>
-            <div>
+            <div class="title">
               {{ product.title }}
             </div>
           </summary>
