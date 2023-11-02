@@ -77,3 +77,8 @@ summary {
     display: flex;
     grid-gap: 1ch;
 }
+
+.price {
+    width: 2em;
+    flex-shrink: 0;
+}
