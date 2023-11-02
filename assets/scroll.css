@@ -67,3 +67,7 @@ main {
   top:0;
   z-index: 1;
 }
+
+#spacer {
+  width: 0px;
+}

@@ -19,14 +19,21 @@ details {
     background: red;
 }
 
-details, form,
+details,
 #header,
 .item button {
-    padding: 10px 1em;
+    margin-right: 1em;
+    margin-left: 1em;
 }
 
+details,
+#header,
+.item button,
 form {
-    margin: 10px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #cart {
@@ -57,6 +64,6 @@ form {
 }
 
 .item button {
-    margin: 10px 0;
     width: 100%;
 }
+

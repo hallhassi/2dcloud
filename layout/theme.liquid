@@ -21,18 +21,19 @@
       const listcss = "{{ 'list.css' | asset_url}}";
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
   </script>
-  <div id="header">
-      <input
+  <details id="header">
+    <summary>2dcloud <input
         id="checkbox"
         checked
         type="checkbox"
         data-scroll="{{ 'scroll.css' | asset_url}}"
         data-list="{{ 'list.css' | asset_url}}">
-    <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>
-    <a href="https://2dcloud.substack.com">substack</a>
-    <a href="https://x.com/2dcloud">twitter</a>
-    <a href="https://instagram.com/2d.cloud">instagram</a>
-  </div>
+    </summary>
+    <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
+    <a href="https://2dcloud.substack.com">substack</a>,
+    <a href="https://x.com/2dcloud">twitter</a>,
+    <a href="https://instagram.com/2d.cloud">instagram</a>,
+  </details>
   <main>
 
     {% comment %}
@@ -144,9 +145,9 @@
           {% for media in product.media %}
             {% case media.media_type %}
               {% when 'video' %}
-                {{ media | video_tag: controls: true, image_size: '128x' }}`
+                {{ media | video_tag: controls: true, image_size: '900x' }}`
               {% when 'image' %}
-                <img src="{{ media | image_url: width: 128}}">
+                <img src="{{ media | image_url: width: 900}}">
             {% endcase %}
           {% endfor %}
           {{ product.description }}

@@ -38,7 +38,7 @@ Array.from(items).forEach((item, itemIndex) => {
 
 //make images smaller
 
-imgArray.forEach(img => img.src = img.src.replace('2048x2048', '128x128'))
+imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
 
 
 // set window height ...

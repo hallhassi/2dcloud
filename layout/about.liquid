@@ -1,0 +1,18 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+  <head>
+    <title>2dcloud</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{ 'global.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
+
+<body>
+  <div id="header">
+      2dcloud,
+      <a href="shop.html">shop</a>
+  </div>
+  <main>
+    {{ content_for_layout }}
+  </main>
+</body></html>
