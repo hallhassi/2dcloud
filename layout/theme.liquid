@@ -21,19 +21,38 @@
       const listcss = "{{ 'list.css' | asset_url}}";
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
   </script>
-  <details id="header">
-    <summary>2dcloud <input
-        id="checkbox"
-        checked
-        type="checkbox"
-        data-scroll="{{ 'scroll.css' | asset_url}}"
-        data-list="{{ 'list.css' | asset_url}}">
-    </summary>
-    <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
-    <a href="https://2dcloud.substack.com">substack</a>,
-    <a href="https://x.com/2dcloud">twitter</a>,
-    <a href="https://instagram.com/2d.cloud">instagram</a>,
-  </details>
+  <header id="header" style=" 
+  color: white;
+  margin: 10px 20px 1em;
+  text-align: inherit;
+  ">
+    <a href="https://2dcloud.com/about">2dcloud</a>,
+    <a href="https://2dcloud.com/shop">Shop</a>,
+    {% for article in site.posts %}
+      {% if article.category == 'shop' %}
+      {% elsif article.category == "author" %}
+      {% elsif article.category == "explodingwrists" %}
+      {% elsif article.layout == "redirect" %}
+      {% elsif article.category == "notpublic" %}
+      {% else %}
+        {% if article.url != page.url %}<a href='{{site.baseurl}}{{article.url}}'>{% endif %}
+        {{ article.title }}{% if article.url != page.url %}</a>{% endif %},
+      {% endif %}
+    {% endfor %}
+  </header>
+  {% comment %} <details id="header">
+        <summary>2dcloud <input
+            id="checkbox"
+            checked
+            type="checkbox"
+            data-scroll="{{ 'scroll.css' | asset_url}}"
+            data-list="{{ 'list.css' | asset_url}}">
+        </summary>
+        <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
+        <a href="https://2dcloud.substack.com">substack</a>,
+        <a href="https://x.com/2dcloud">twitter</a>,
+        <a href="https://instagram.com/2d.cloud">instagram</a>,
+    </details> {% endcomment %}
   <main>
 
     {% comment %}
