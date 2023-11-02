@@ -133,7 +133,7 @@ window.addEventListener('click', (e) => {
         closeItems()
         pushState(e.target.parentNode.dataset.handle)
     } else if (e.target.tagName == 'BODY') closeItems()
-    else if (e.target.parentNode.id == 'cart') closeItems()
+    else if (e.target.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeItems()
 })
 
 function pushState(handle) {
