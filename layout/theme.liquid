@@ -17,6 +17,7 @@
 </head>
 
 <body>
+  <script>Array.from(document.querySelectorAll('script')).forEach(s => s.remove())</script>
   <script>
       const listcss = "{{ 'list.css' | asset_url}}";
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
