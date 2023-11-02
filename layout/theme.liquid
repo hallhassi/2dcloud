@@ -50,13 +50,13 @@
       data-list="{{ 'list.css' | asset_url}}">
   </div>
   {% comment %} <details id="header">
-                <summary>2dcloud 
-                </summary>
-                <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
-                <a href="https://2dcloud.substack.com">substack</a>,
-                <a href="https://x.com/2dcloud">twitter</a>,
-                <a href="https://instagram.com/2d.cloud">instagram</a>,
-        </details> {% endcomment %}
+                    <summary>2dcloud 
+                    </summary>
+                    <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
+                    <a href="https://2dcloud.substack.com">substack</a>,
+                    <a href="https://x.com/2dcloud">twitter</a>,
+                    <a href="https://instagram.com/2d.cloud">instagram</a>,
+          </details> {% endcomment %}
   <main>
 
     {% comment %}
@@ -67,7 +67,10 @@
       id="cart"
       class="hidden"
       hidden>
-      <summary id="total"></summary>
+      <summary>
+        <div class="price" id="total"></div>
+        <div class="title">Cart</div>
+      </summary>
       <form
         class="checkout"
         action="/cart"

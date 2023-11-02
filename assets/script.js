@@ -130,8 +130,8 @@ if (history.state) storedHandle = history.state.handle
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
         console.log(e.currentTarget, e.currentTarget.parentNode.open, e.target);
-        if (e.currentTarget.parentNode.open == true) closeCart()
-        else if (e.currentTarget.parentNode.open == false) {
+        if (e.currentTarget.parentNode.dataset?.handle == storedHandle) closeCart()
+        else if (e.currentTarget.parentNode.dataset?.handle) {
             closeItems()
             pushState(e.currentTarget.parentNode.dataset.handle)
         } 
