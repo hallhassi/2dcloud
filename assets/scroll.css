@@ -45,7 +45,7 @@ details[open] button {
   justify-content: end;
 }
 
-#cart title {
+#cart .title {
   display: none;
 }
 
