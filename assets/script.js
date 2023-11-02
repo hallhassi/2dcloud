@@ -14,6 +14,7 @@ const details = Array.from(document.querySelectorAll('details'))
 const canvas = document.querySelector('canvas#canvas')
 const context = canvas.getContext("2d")
 const closeItems = () => Array.from(details).forEach(item => item.open = false)
+const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
@@ -126,10 +127,11 @@ function checkboxFunction() {
 
 window.addEventListener('click', (e) => {
     if (history.state) storedHandle = history.state.handle
-    if (e.target.parentNode.dataset?.handle &&
-        e.target.parentNode.dataset?.handle !== storedHandle) {
-        pushState(e.target.parentNode.dataset.handle)
+    if (e.target.parentNode.dataset?.handle)
+        if (e.target.parentNode.dataset?.handle == storedHandle) closeCart()
+        else {
         closeItems()
+        pushState(e.target.parentNode.dataset.handle)
     } else if (e.target.tagName == 'BODY') closeItems()
     else if (e.target.parentNode.id == 'cart') closeItems()
 })
