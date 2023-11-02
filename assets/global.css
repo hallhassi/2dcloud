@@ -30,8 +30,15 @@ form {
 #cart {
     z-index: 2;
     position: fixed;
-    max-height: 100%;
     overflow: scroll;
+}
+
+#cart input.qty {
+    width: 2em;
+}
+
+#cart button {
+    margin-right: 1em;
 }
 
 #checkbox {
@@ -61,14 +68,6 @@ form {
     width: 100%;
 }
 
-#cart input.qty {
-    width: 2em;
-}
-
-#cart button {
-    margin-right: 1em;
-}
-
-#cart div {
-    white-space: nowrap;
+header {
+    padding: 1em;
 }
