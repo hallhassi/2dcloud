@@ -19,11 +19,13 @@ details {
     background: red;
 }
 
-details,
-#header,
 .item button {
     margin-right: 1em;
     margin-left: 1em;
+
+details, #header {
+    padding-right: 1em;
+    padding-left: 1em;
 }
 
 details,
@@ -32,6 +34,10 @@ details,
 form {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.item button,
+form {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -66,4 +72,3 @@ form {
 .item button {
     width: 100%;
 }
-
