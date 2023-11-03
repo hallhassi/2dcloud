@@ -82,15 +82,15 @@ function draw() {
     if (previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
-        items[itemIndex].classList.add('vis')
+        items[itemIndex]?.classList.add('vis')
         details.forEach(details => details.open = false)
     }
     if (img !== undefined && img.complete && previousImgIndex != imgIndex) {
         previousImgIndex = imgIndex
         canvas.width = img.naturalWidth
         canvas.height = img.naturalHeight
+        console.log(`drawing ${imgArray.length}[${imgIndex}]`)
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-        console.log('drew')
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
         const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
         if (spaceForDetails > minTextWidth) {
@@ -100,7 +100,6 @@ function draw() {
             items[itemIndex].style.width = 'auto'
             cart.style.width = 'auto'
         }
-        console.log(`${spaceForDetails} ${imgArray.length}[${imgIndex}] ${window.scrollY}`)
     }
 }
 
