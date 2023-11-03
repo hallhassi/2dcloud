@@ -48,23 +48,23 @@ spacer.style.height = imgArray.length * scrollStep + document.documentElement.cl
 
 // and window height dependent variables 
 
-let initialOffset = main.getBoundingClientRect().top
-let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
+const initialOffset = main.getBoundingClientRect().top
+let imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 
 
 // routing
 
 const img = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
-img.addEventListener("load", handleLoad)
+img.addEventListener("load", route)
+console.log('scrolling to ' + (img.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1);
 window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
 
-function handleLoad() {
-    console.log('loadhandling ' + this.imgIndex);
+function route() {
+    console.log('routing ' + this.imgIndex);
     imgIndex = this.imgIndex
     pushState(imgArray[imgIndex].handle)
     draw()
-    console.log('loadhandled ' + this.imgIndex);
 }
 
 
@@ -78,7 +78,7 @@ function draw() {
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
     console.log(imgIndex, window.scrollY - initialOffset);
-    console.log(previousItemIndex, itemIndex, previousItemIndex != itemIndex, img !== undefined , img.complete , previousImgIndex != imgIndex)
+    console.log(previousItemIndex, itemIndex, previousItemIndex != itemIndex, img !== undefined, img.complete, previousImgIndex != imgIndex)
     if (previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
@@ -118,9 +118,9 @@ Array.from(summaries).forEach(summary => {
         console.log(e.currentTarget, e.currentTarget.parentNode.open);
         if (e.currentTarget.parentNode.open == true) e.currentTarget.parentNode.open = false
         else if (e.currentTarget.parentNode.dataset?.handle) {
-                closeDetails()
-                pushState(e.currentTarget.parentNode.dataset.handle)
-            } 
+            closeDetails()
+            pushState(e.currentTarget.parentNode.dataset.handle)
+        }
         else if (e.currentTarget.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeDetails()
     })
 })
