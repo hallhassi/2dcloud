@@ -70,9 +70,17 @@ function route() {
 
 // scroll
 
-window.addEventListener('scroll', draw, { passive: true });
-window.addEventListener('resize', draw);
-console.log(previousItemIndex)
+window.addEventListener('scroll', handleScroll, { passive: true });
+window.addEventListener('resize', handleResize);
+
+function handleScroll() {
+
+   console.log('scrolling'); 
+   draw()}
+function handleResize() {
+    console.log('resizing'); 
+   draw()}
+
 function draw() {
     imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
     const img = imgArray[imgIndex]
