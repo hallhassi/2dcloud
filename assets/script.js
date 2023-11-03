@@ -129,11 +129,11 @@ Array.from(summaries).forEach(summary => {
         const parent = e.currentTarget.parentNode
         console.log(e.currentTarget, parent.open);
         if (parent.open == true) parent.open = false
-        else if (parent.dataset?.handle) {
+        else if (parent.open == false) {
             closeDetails()
-            pushState(parent.dataset.handle)
+            parent.open = true
         }
-        else if (parent.id == 'cart' && document.body.querySelector('.item[open]')) closeDetails()
+        if (parent.dataset?.handle) pushState(parent.dataset.handle)
     })
 })
 
