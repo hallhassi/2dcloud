@@ -1,0 +1,82 @@
+<head>
+    <style > :root
+        {
+          --height: calc({% assign i = 0 %}{% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}{% assign i = i | plus: 1 %}{% endfor %}{% endpaginate %}{{ i }} * 100px);
+        }
+      </style>
+      {{ 'global.css' | asset_url | stylesheet_tag }}
+      <link
+        rel="stylesheet"
+        class="switch"
+        href="{{ 'scroll.css' | asset_url }}">
+      {{ content_for_header }}
+</head>
+<body>
+
+    {% comment %}
+      item
+    {% endcomment %}
+
+    {% paginate collections.all.products by 1000 %}
+        {% for product in collections.all.products %}
+          <details
+            class="item"
+            data-handle="{{ product.handle }}"
+            data-id="{{ product.id }}">
+            <summary>
+              <div class="price">
+                {% if product.available %}
+                  ${{ product.price | divided_by: 100.00 | ceil }}
+                {% endif %}
+                {% if product.compare_at_price > product.price %}
+                  <br>
+                  <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
+                {% endif %}
+              </div>
+              <div class="title">
+                {{ product.title }}
+              </div>
+            </summary>
+            {% if product.has_only_default_variant %}
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <button
+                    data-id="{{ variant.id}}"
+                    data-price="{{ variant.price }}"
+                    class="buy">buy</button>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <button
+                    data-id="{{ variant.id}}"
+                    data-price="{{ variant.price }}"
+                    class="buy">
+                    {% assign vsplits = variant.title | split: ' ' %}
+                    {% for vsplit in vsplits %}
+                      {{- vsplit | slice: 0 | upcase -}}
+                    {% endfor %}
+                  </button>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            {% for media in product.media %}
+              {% case media.media_type %}
+                {% when 'video' %}
+                  {{ media | video_tag: controls: true, image_size: '900x' }}`
+                {% when 'image' %}
+                  <img src="{{ media | image_url: width: 900}}">
+              {% endcase %}
+            {% endfor %}
+            {{ product.description }}
+          </details>
+        {% endfor %}
+      {% endpaginate %}
+    </main>
+    <div class="canvasWrapper">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div id="spacer"></div>
+    {{ 'script.js' | asset_url | script_tag }}
+</body>

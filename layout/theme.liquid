@@ -3,25 +3,9 @@
   <head>
     <title>2dcloud</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <style > :root
-    {
-      --height: calc({% assign i = 0 %}{% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}{% assign i = i | plus: 1 %}{% endfor %}{% endpaginate %}{{ i }} * 100px);
-    }
-  </style>
-  {{ 'global.css' | asset_url | stylesheet_tag }}
-  <link
-    rel="stylesheet"
-    class="switch"
-    href="{{ 'scroll.css' | asset_url }}">
-  {{ content_for_header }}
 </head>
 
 <body>
-  <script>
-      const listcss = "{{ 'list.css' | asset_url}}";
-      const scrollcss = "{{ 'scroll.css' | asset_url}}";
-  </script>
-
   <div id="svg">
     <svg>
       <path d="M81.781,86.906c-4.973,0-9.155,3.475-10.219,8.125c-0.427-0.089-0.859-0.125-1.312-0.125c-3.571,0-6.469,2.898-6.469,6.469c0,3.354,2.574,6.115,5.844,6.438v0.031H81.25v-0.031c0.175,0.009,0.354,0.031,0.531,0.031c5.777,0,10.438-4.691,10.438-10.469C92.219,91.597,87.559,86.906,81.781,86.906z" />
@@ -106,72 +90,5 @@
           value="checkout">
       </form>
     </details>
-
-    {% comment %}
-      item
-    {% endcomment %}
-
-    {% paginate collections.all.products by 1000 %}
-      {% for product in collections.all.products %}
-        <details
-          class="item"
-          data-handle="{{ product.handle }}"
-          data-id="{{ product.id }}">
-          <summary>
-            <div class="price">
-              {% if product.available %}
-                ${{ product.price | divided_by: 100.00 | ceil }}
-              {% endif %}
-              {% if product.compare_at_price > product.price %}
-                <br>
-                <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
-              {% endif %}
-            </div>
-            <div class="title">
-              {{ product.title }}
-            </div>
-          </summary>
-          {% if product.has_only_default_variant %}
-            {% for variant in product.variants %}
-              {% if variant.available %}
-                <button
-                  data-id="{{ variant.id}}"
-                  data-price="{{ variant.price }}"
-                  class="buy">buy</button>
-              {% endif %}
-            {% endfor %}
-          {% else %}
-            {% for variant in product.variants %}
-              {% if variant.available %}
-                <button
-                  data-id="{{ variant.id}}"
-                  data-price="{{ variant.price }}"
-                  class="buy">
-                  {% assign vsplits = variant.title | split: ' ' %}
-                  {% for vsplit in vsplits %}
-                    {{- vsplit | slice: 0 | upcase -}}
-                  {% endfor %}
-                </button>
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-          {% for media in product.media %}
-            {% case media.media_type %}
-              {% when 'video' %}
-                {{ media | video_tag: controls: true, image_size: '900x' }}`
-              {% when 'image' %}
-                <img src="{{ media | image_url: width: 900}}">
-            {% endcase %}
-          {% endfor %}
-          {{ product.description }}
-        </details>
-      {% endfor %}
-    {% endpaginate %}
-  </main>
-  <div class="canvasWrapper">
-    <canvas id="canvas"></canvas>
-  </div>
-  <div id="spacer"></div>
   {{ content_for_layout }}
-  {{ 'script.js' | asset_url | script_tag }}
 </body></html>

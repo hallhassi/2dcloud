@@ -74,12 +74,13 @@ window.addEventListener('scroll', handleScroll, { passive: true });
 window.addEventListener('resize', handleResize);
 
 function handleScroll() {
-
-   console.log('scrolling'); 
-   draw()}
+    console.log('scrolling');
+    draw()
+}
 function handleResize() {
-    console.log('resizing'); 
-   draw()}
+    console.log('resizing');
+    draw()
+}
 
 function draw() {
     imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
