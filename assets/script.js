@@ -55,15 +55,16 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 // routing
 
-const img = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
-img.addEventListener("load", route)
-console.log('scrolling to ' + (img.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1);
-if (img != imgArray[0]) window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
+const initialImg = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
+initialImg.addEventListener("load", route)
 
 function route() {
-    console.log('routing ' + this.imgIndex);
-    imgIndex = this.imgIndex
-    pushState(imgArray[imgIndex].handle)
+    if (initialImg != imgArray[0]) {
+        console.log('routing ' + this.imgIndex);
+        window.scrollTo({ top: (initialImg.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
+        imgIndex = this.imgIndex
+        pushState(imgArray[imgIndex].handle)
+    }
     draw()
 }
 
