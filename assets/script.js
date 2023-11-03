@@ -74,7 +74,7 @@ window.addEventListener('scroll', draw, { passive: true });
 window.addEventListener('resize', draw);
 
 function draw() {
-    imgIndex = window.scrollY - initialOffset <= 0 ? 0 : Math.floor((window.scrollY - initialOffset) / scrollStep)
+    imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
     console.log(imgIndex, window.scrollY - initialOffset);
@@ -117,7 +117,7 @@ Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
         console.log(e.currentTarget, e.currentTarget.parentNode.open);
         if (e.currentTarget.open == true) e.currentTarget.open = false
-        if (e.currentTarget.parentNode.dataset?.handle) {
+        else if (e.currentTarget.parentNode.dataset?.handle) {
                 closeDetails()
                 pushState(e.currentTarget.parentNode.dataset.handle)
             } 
