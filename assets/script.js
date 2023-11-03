@@ -48,7 +48,7 @@ spacer.style.height = imgArray.length * scrollStep + document.documentElement.cl
 
 // and window height dependent variables 
 
-const initialOffset = window.scrollY + main.getBoundingClientRect().top
+let initialOffset = main.getBoundingClientRect().top
 let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 
