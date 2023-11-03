@@ -17,7 +17,6 @@ const closeDetails = () => Array.from(details).forEach(item => item.open = false
 const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
 let storedHandle
-let clearCode, firstPass = true
 const fontSize = parseInt(window.getComputedStyle(main).fontSize)
 const minTextWidth = 12 * fontSize
 
@@ -77,7 +76,7 @@ window.addEventListener('scroll', draw, { passive: true });
 window.addEventListener('resize', draw);
 
 function draw() {
-    imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
+    imgIndex = window.scrollY - initialOffset ? 0 : Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
     if (previousItemIndex != itemIndex) {
@@ -91,6 +90,7 @@ function draw() {
         canvas.width = img.naturalWidth
         canvas.height = img.naturalHeight
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
+        console.log('drew')
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
         const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
         if (spaceForDetails > minTextWidth) {
