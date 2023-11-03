@@ -60,7 +60,7 @@ const initialImg = typeof productId == 'number' ? imgArray.find(img => img.produ
 initialImg.addEventListener("load", route)
 
 function route() {
-    console.log(initialImg, initialImg == imgArray[0]);
+    console.log('loaded ' + initialImg.imgIndex);
     if (initialImg != imgArray[0]) {
         console.log('routing ' + this.imgIndex);
         window.scrollTo({ top: (initialImg.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
@@ -76,7 +76,7 @@ window.addEventListener('scroll', handleScroll, { passive: true });
 window.addEventListener('resize', handleResize);
 
 function handleScroll() {
-    console.log('scrolling');
+    console.log('scrolling from ' + window.scrollY + ', ' + imgIndex);
     draw()
 }
 function handleResize() {
