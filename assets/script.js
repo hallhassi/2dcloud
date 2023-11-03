@@ -125,13 +125,15 @@ document.body.addEventListener('click', (e) => {
 
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
-        console.log(e.currentTarget, e.currentTarget.parentNode.open);
-        if (e.currentTarget.parentNode.open == true) e.currentTarget.parentNode.open = false
-        else if (e.currentTarget.parentNode.dataset?.handle) {
+        e.preventDefault()
+        const parent = e.currentTarget.parentNode
+        console.log(e.currentTarget, parent.open);
+        if (parent.open == true) parent.open = false
+        else if (parent.dataset?.handle) {
             closeDetails()
-            pushState(e.currentTarget.parentNode.dataset.handle)
+            pushState(parent.dataset.handle)
         }
-        else if (e.currentTarget.parentNode.id == 'cart' && document.body.querySelector('.item[open]')) closeDetails()
+        else if (parent.id == 'cart' && document.body.querySelector('.item[open]')) closeDetails()
     })
 })
 
