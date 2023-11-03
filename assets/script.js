@@ -57,7 +57,7 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 const img = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
 img.addEventListener("load", handleLoad)
-window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + 1, behavior: 'instant' })
+window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
 console.log('scrolled');
 
 function handleLoad() {
