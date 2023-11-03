@@ -1,7 +1,7 @@
 const added = document.getElementsByClassName('added')
 const items = document.querySelectorAll('.item')
 const cart = document.querySelector('#cart')
-const header = document.querySelector('#header')
+const main = document.querySelector('main')
 const display = document.querySelector('#display')
 const spacer = document.querySelector('#spacer')
 const total = cart.querySelector('#total')
@@ -18,7 +18,7 @@ const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
 let storedHandle
 let clearCode, firstPass = true
-const fontSize = parseInt(window.getComputedStyle(header).fontSize)
+const fontSize = parseInt(window.getComputedStyle(main).fontSize)
 const minTextWidth = 12 * fontSize
 
 
@@ -49,7 +49,7 @@ spacer.style.height = imgArray.length * scrollStep + document.documentElement.cl
 
 // and window height dependent variables 
 
-const initialOffset = window.scrollY + header.getBoundingClientRect().top
+const initialOffset = window.scrollY + main.getBoundingClientRect().top
 let imgIndex = Math.floor((window.scrollY - initialOffset) / scrollStep)
 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 
