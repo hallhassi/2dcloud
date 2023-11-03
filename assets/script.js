@@ -60,9 +60,9 @@ const initialImg = typeof productId == 'number' ? imgArray.find(img => img.produ
 initialImg.addEventListener("load", route)
 
 function route() {
+    console.log(initialImg, initialImg == imgArray[0]);
     if (initialImg != imgArray[0]) {
         console.log('routing ' + this.imgIndex);
-
         window.scrollTo({ top: (initialImg.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
         imgIndex = this.imgIndex
         pushState(imgArray[imgIndex].handle)
