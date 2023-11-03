@@ -76,7 +76,7 @@ window.addEventListener('scroll', draw, { passive: true });
 window.addEventListener('resize', draw);
 
 function draw() {
-    imgIndex = window.scrollY - initialOffset ? 0 : Math.floor((window.scrollY - initialOffset) / scrollStep)
+    imgIndex = window.scrollY - initialOffset == 0 ? 0 : Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
     if (previousItemIndex != itemIndex) {
