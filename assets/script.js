@@ -79,7 +79,7 @@ function draw() {
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
     console.log(imgIndex, window.scrollY - initialOffset);
-    console.log(previousItemIndex != itemIndex, img !== undefined , img.complete , previousImgIndex != imgIndex)
+    console.log(previousItemIndex, itemIndex, previousItemIndex != itemIndex, img !== undefined , img.complete , previousImgIndex != imgIndex)
     if (previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
