@@ -58,7 +58,6 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 const img = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
 img.addEventListener("load", handleLoad)
 window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
-console.log('scrolled');
 
 function handleLoad() {
     console.log('loadhandling ' + this.imgIndex);
@@ -104,23 +103,6 @@ function draw() {
     }
 }
 
-
-// checkbox
-
-checkbox.addEventListener('change', checkboxFunction)
-if (window.location.pathname == '/list') checkbox.click();
-function checkboxFunction() {
-    if (checkbox.checked) {
-        window.addEventListener('scroll', draw, { passive: true })
-        stylesheet.href = checkbox.dataset.scroll
-        spacer.style.display = 'inherit'
-    } else {
-        window.removeEventListener('scroll', draw, { passive: true })
-        stylesheet.href = checkbox.dataset.list
-        spacer.style.display = 'none'
-        details.forEach(d => d.style = "")
-    }
-}
 
 
 if (history.state) storedHandle = history.state.handle
