@@ -69,6 +69,12 @@ form {
     width: 100%;
 }
 
+#header {
+    text-align: center;
+    line-height: 100vh;
+    height: 100vh;
+}
+
 #header a {
     color: white;
 }
@@ -80,4 +86,14 @@ summary {
 .price {
     width: 2em;
     flex-shrink: 0;
+}
+
+svg {
+    width: 30px;
+    height: 22px;
+}
+
+svg path {
+    transform: translate(-63px, -86px);
+    fill: black;
 }
