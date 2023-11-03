@@ -1,4 +1,11 @@
 
+{/* <input
+id="checkbox"
+checked
+type="checkbox"
+data-scroll="{{ 'scroll.css' | asset_url}}"
+data-list="{{ 'list.css' | asset_url}}">
+<div id="svg"> */}
 // checkbox
 
 checkbox.addEventListener('change', checkboxFunction)
