@@ -49,6 +49,7 @@ spacer.style.height = imgArray.length * scrollStep + document.documentElement.cl
 // and window height dependent variables 
 
 const initialOffset = main.getBoundingClientRect().top
+console.log(initialOffset);
 let imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
 
@@ -61,13 +62,13 @@ initialImg.addEventListener("load", route)
 function route() {
     if (initialImg != imgArray[0]) {
         console.log('routing ' + this.imgIndex);
+
         window.scrollTo({ top: (initialImg.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
         imgIndex = this.imgIndex
         pushState(imgArray[imgIndex].handle)
     }
     draw()
 }
-
 
 // scroll
 
