@@ -22,26 +22,10 @@
       const scrollcss = "{{ 'scroll.css' | asset_url}}";
   </script>
   <div id="header">
-    <a href="https://2dcloud.com/about">2dcloud</a>
-    Shop
-    <a href="/paul-peng-sketchbook">Sketchbook by Paul Peng</a>
-    <a href="/margot-ferrick-sketchbook">Sketchbooks by Margot Ferrick</a>
-    <a href="/blaise-larmee-sketchbook">Sketchbook by Blaise Larmee</a>
-    <a href="/cake-2015">Cake 2015</a>
-    <a href="/a-new-york-story">A New York Story</a>
-    <a href="/tcaf-2015">TCAF 2015</a>
-    <a href="/mocca-2015">MoCCA 2015</a>
-    <a href="/aidan-koch-translations">Translations</a>
-    <a href="/tommi-parrish-interview">Tommi Parrish</a>
-    <a href="/leon-sadler-interview">Leon Sadler</a>
-    <a href="/new-york-minute">New York Minute</a>
-    <a href="/meags-fitzgerald-interview">Meags Fitzgerald</a>
-    <a href="/julie-doucet-interview">Julie Doucet</a>
-    <a href="/mike-dawson-interview">Mike Dawson</a>
-    <a href="/marinaomi-apology-not-acceptable">Apology Not Acceptable</a>
-    <a href="/zak-sally-interview">Zak Sally</a>
-    <a href="/scott-longo-interview">Scott Longo</a>
-    <a href="/moonbaby">Moonbaby</a>
+    <svg height="16" viewBox="0 0 16 16" width="16">
+      <path d="M81.781,86.906c-4.973,0-9.155,3.475-10.219,8.125c-0.427-0.089-0.859-0.125-1.312-0.125c-3.571,0-6.469,2.898-6.469,6.469c0,3.354,2.574,6.115,5.844,6.438v0.031H81.25v-0.031c0.175,0.009,0.354,0.031,0.531,0.031c5.777,0,10.438-4.691,10.438-10.469C92.219,91.597,87.559,86.906,81.781,86.906z">
+      </path>
+    </svg>
     <input
       id="checkbox"
       checked
@@ -50,13 +34,13 @@
       data-list="{{ 'list.css' | asset_url}}">
   </div>
   {% comment %} <details id="header">
-                    <summary>2dcloud 
-                    </summary>
-                    <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
-                    <a href="https://2dcloud.substack.com">substack</a>,
-                    <a href="https://x.com/2dcloud">twitter</a>,
-                    <a href="https://instagram.com/2d.cloud">instagram</a>,
-          </details> {% endcomment %}
+                        <summary>2dcloud 
+                        </summary>
+                        <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
+                        <a href="https://2dcloud.substack.com">substack</a>,
+                        <a href="https://x.com/2dcloud">twitter</a>,
+                        <a href="https://instagram.com/2d.cloud">instagram</a>,
+            </details> {% endcomment %}
   <main>
 
     {% comment %}
@@ -71,16 +55,6 @@
         <div class="price" id="total"></div>
         <div class="title">Cart</div>
       </summary>
-      <form
-        class="checkout"
-        action="/cart"
-        method="post"
-        novalidate>
-        <input
-          type="submit"
-          name="checkout"
-          value="checkout">
-      </form>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
           {% if product.has_only_default_variant %}
@@ -123,6 +97,16 @@
           {% endif %}
         {% endfor %}
       {% endpaginate %}
+      <form
+        class="checkout"
+        action="/cart"
+        method="post"
+        novalidate>
+        <input
+          type="submit"
+          name="checkout"
+          value="checkout">
+      </form>
     </details>
 
     {% comment %}
