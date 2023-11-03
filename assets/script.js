@@ -57,7 +57,6 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 const img = typeof productId == 'number' ? imgArray.find(img => img.productId == productId) : imgArray[0]
 img.addEventListener("load", handleLoad)
-console.log(img);
 window.scrollTo({ top: (img.imgIndex / imgArray.length * scrollableHeight) + 1, behavior: 'instant' })
 console.log('scrolled');
 
@@ -79,6 +78,7 @@ function draw() {
     imgIndex = window.scrollY - initialOffset == 0 ? 0 : Math.floor((window.scrollY - initialOffset) / scrollStep)
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
+    console.log(imgIndex, window.scrollY - initialOffset);
     console.log(previousItemIndex != itemIndex, img !== undefined , img.complete , previousImgIndex != imgIndex)
     if (previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
