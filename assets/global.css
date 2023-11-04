@@ -40,9 +40,10 @@ form {
 }
 
 #cart {
-    z-index: 2;
-    position: absolute;
-    overflow: scroll;
+    position: sticky;
+    top: 0;
+    left: 0;
+    left: 0;
 }
 
 #cart input.qty {
@@ -102,3 +103,13 @@ svg path {
     transform: translate(-63px, -86px);
     fill: black;
 }
+
+canvas {
+    display: none;
+}
+
+#cart summary {
+    text-align: left;
+    width: 100%;
+}
+    

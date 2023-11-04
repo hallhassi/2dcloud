@@ -62,7 +62,10 @@ details[open] button {
 }
 
 #cart {
-  top: 0;
+  z-index: 2;
+  position: absolute;
+  overflow: scroll;
+    top: 0;
   right: 0;
 }
 

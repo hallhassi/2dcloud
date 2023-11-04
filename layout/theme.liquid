@@ -10,12 +10,12 @@
 
   <body>
     {{ content_for_layout }}
-    {{ 'list.js' | asset_url | script_tag }}
     <button id="enhance">enhance</button>
     <script>
       let enhanced = false
-      const enhanceJs = '{{ 'scroll.js' | asset_url }}'
-      const enhanceCss = '{{ 'scroll.css' | asset_url }}'
+      const enhanceJs = '{{ 'enhance.js' | asset_url }}'
+      const enhanceCss = '{{ 'enhance.css' | asset_url }}'
+      const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
 
       var css = document.createElement("link")
       css.rel = "stylesheet"
@@ -25,11 +25,11 @@
       js.type = "text/javascript"
 
       if (typeof productId == 'undefined') {
-      css.href = enhanceCss
-      js.src = indexSc3ript
+        css.href = enhanceCss
+        js.src = enhanceJs
       } else {
-      css.href = listCss
-      js.src = listScript
+        css.href = ""
+        js.src = unenhanceJS
       }
 
       document.querySelector('#enhance').addEventListener('click', enhance)
