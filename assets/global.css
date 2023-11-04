@@ -85,8 +85,8 @@ summary {
 
 div#header {
     text-align: center;
-    line-height: 100vh;
-    height: calc(50vh + 16px);
+    line-height: 25vh;
+    height: calc(25vh + 16px);
     padding-bottom: 8px;
     width: 100%;
     z-index: -1;

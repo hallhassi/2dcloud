@@ -10,7 +10,7 @@ if (typeof productId == 'undefined') {
     js.src = indexScript
 } else {
     css.href = listCss
-    js.src = ""
+    js.src = listScript
 }
 
 document.head.appendChild(css)

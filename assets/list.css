@@ -13,3 +13,7 @@ canvas {
     text-align: left;
     width: 100%;
 }
+
+.title {
+    font-size: 4vw;
+}
