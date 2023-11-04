@@ -9,8 +9,10 @@
     }
   </style>
   {{ 'global.css' | asset_url | stylesheet_tag }}
+  {% comment %} productId {% endcomment %}
   {{ content_for_header }}
   <script>
+    console.log (productId)
     const indexScript = '{{ 'script.js' | asset_url }}'
     const indexCss = '{{ 'scroll.css' | asset_url }}'
     const listCss = '{{ 'list.css' | asset_url }}'
