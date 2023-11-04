@@ -1,18 +1,4 @@
 
-// build array
-
-const imgArray = []
-let i = 0
-Array.from(items).forEach((item, itemIndex) => {
-    Array.from(item.querySelectorAll('img')).forEach((img) => {
-        img.itemIndex = itemIndex
-        img.imgIndex = i
-        img.productId = item.dataset.id
-        img.handle = item.dataset.handle
-        imgArray.push(img)
-        i += 1
-    })
-})
 
 // set window height ...
 

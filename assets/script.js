@@ -22,6 +22,21 @@ const minTextWidth = 12 * fontSize
 
 if (history.state) storedHandle = history.state.handle
 
+// build array
+
+const imgArray = []
+let i = 0
+Array.from(items).forEach((item, itemIndex) => {
+    Array.from(item.querySelectorAll('img')).forEach((img) => {
+        img.itemIndex = itemIndex
+        img.imgIndex = i
+        img.productId = item.dataset.id
+        img.handle = item.dataset.handle
+        imgArray.push(img)
+        i += 1
+    })
+})
+
 //make images smaller
 
 imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
