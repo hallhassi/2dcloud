@@ -14,13 +14,19 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 
 // init
+
+draw()
+
 const initialImgs = imgArray.filter(img => img.productId == items[0].dataset.id)
-initialImgs.forEach(i => i.addEventListener("load", init))
+initialImgs.forEach(i => {
+    if (i.loaded)
+    i.addEventListener("load", init)})
 
 function init() {
     initialImgs.forEach(i => i.removeEventListener("load", init))
     draw()
 }
+
 
 // scroll
 
