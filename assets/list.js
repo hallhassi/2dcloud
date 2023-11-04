@@ -2,5 +2,5 @@ const currentProduct = Array.from(items).find(item => item.dataset.id == product
 const cartHeight = cart.getBoundingClientRect().height
 const productLocation = currentProduct.scrollTop
 const scrollTo = productLocation - cartHeight
-currentProduct.open = true
 window.scrollTo(0, scrollTo)
+currentProduct.open = true
