@@ -1,7 +1,7 @@
 var js = document.createElement("script");
 js.type = "text/javascript";
 
-if (typeof productId == 'number') {
+if (typeof productId == 'undefined') {
     js.src = indexScript;
 } else  js.src = "";
 
