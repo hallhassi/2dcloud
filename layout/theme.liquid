@@ -35,13 +35,15 @@
         css.type = "text/css"
         css.media = "all"
         css.classList.add("enhance")
+        css.href = enhanceCss
         js.type = "text/javascript"
         js.classList.add("enhance")
+        js.src = enhanceJs
         if (enhanced == false) {
           enhanced = true
           enhancedButton.innerHTML = 'unenhance'
-          document.head.appendChild(enhanceCss)
-          document.body.appendChild(enhanceJs)
+          document.head.appendChild(css)
+          document.body.appendChild(js)
         } else {
           document.body.appendChild(unenhanceJs)
           Array.from(document.querySelectorAll('.enhance')).forEach(e => e.remove())
