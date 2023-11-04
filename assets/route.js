@@ -6,10 +6,10 @@ var js = document.createElement("script")
 js.type = "text/javascript"
 
 if (typeof productId == 'undefined') {
+    css.href = indexCss
     js.src = indexScript
-    css.src = indexCss
 } else {
-    css.src = listCss
+    css.href = listCss
     js.src = ""
 }
 
