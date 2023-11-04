@@ -14,18 +14,11 @@ const scrollableHeight = document.documentElement.scrollHeight - window.innerHei
 
 
 // init
+const initialImgs = imgArray.filter(img => img.productId == items[0].dataset.id)
+initialImgs.forEach(i => i.addEventListener("load", init))
 
-const initialImg = imgArray[0]
-initialImg.addEventListener("load", route)
-
-function route() {
-    console.log('loaded ' + initialImg.imgIndex);
-    if (initialImg != imgArray[0]) {
-        console.log('routing ' + this.imgIndex);
-        window.scrollTo({ top: (initialImg.imgIndex / imgArray.length * scrollableHeight) + initialOffset + 1, behavior: 'instant' })
-        imgIndex = this.imgIndex
-        pushState(imgArray[imgIndex].handle)
-    }
+function init() {
+    initialImgs.forEach(i => i.removeEventListener("load", init))
     draw()
 }
 
