@@ -4,25 +4,27 @@ const enhancedButton = document.querySelector('#enhance')
 enhancedButton.addEventListener('click', enhance)
 
 function enhance() {    
-  const css = document.createElement("link")
-  const js = document.createElement("script")
-  css.rel = "stylesheet"
-  css.type = "text/css"
-  css.media = "all"
-  css.classList.add("enhance")
-  css.href = enhanceCss
-  js.type = "text/javascript"
-  js.classList.add("enhance")
+
+  const link = document.createElement("link")
+  const script = document.createElement("script")
+  link.rel = "stylesheet"
+  link.type = "text/css"
+  link.media = "all"
+  script.type = "text/javascript"
+
   if (enhanced == false) {
-    js.src = enhanceJs
+    script.src = enhanceJs
+    link.classList.add("enhance")
+    script.classList.add("enhance")
+    link.href = enhanceCss
     enhanced = true
     enhancedButton.innerHTML = 'unenhance'
   } else {
-    js.src = unenhanceJs
+    script.src = unenhanceJs
     enhanced = false
     enhancedButton.innerHTML = 'enhance'
     Array.from(document.querySelectorAll('.enhance')).forEach(e => e.remove())
   }
-  document.head.appendChild(css)
-  document.body.appendChild(js)
+  document.head.appendChild(link)
+  document.body.appendChild(script)
 }
