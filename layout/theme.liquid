@@ -11,7 +11,7 @@
   <body>
     {{ content_for_layout }}
     {{ 'list.js' | asset_url | script_tag }}
-    <button id="enhance"></button>
+    <button id="enhance">enhance</button>
     <script>
       let enhanced = false
       const enhanceJs = '{{ 'scroll.js' | asset_url }}'
