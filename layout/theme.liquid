@@ -38,16 +38,17 @@
         css.href = enhanceCss
         js.type = "text/javascript"
         js.classList.add("enhance")
-        js.src = enhanceJs
         if (enhanced == false) {
+          js.src = enhanceJs
           enhanced = true
           enhancedButton.innerHTML = 'unenhance'
-          document.head.appendChild(css)
-          document.body.appendChild(js)
         } else {
-          document.body.appendChild(unenhanceJs)
+          js.src = unenhanceJs
           Array.from(document.querySelectorAll('.enhance')).forEach(e => e.remove())
         }
+          document.head.appendChild(css)
+          document.body.appendChild(js)
+        
       }
     </script>
     <main>
