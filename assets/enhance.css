@@ -17,6 +17,7 @@ img {
 }
 
 canvas {
+  display: block;
   position: absolute;
   max-height: 100vh;
   max-width: 100vw;
@@ -67,6 +68,7 @@ details[open] button {
   overflow: scroll;
     top: 0;
   right: 0;
+  left: auto;
 }
 
 main {

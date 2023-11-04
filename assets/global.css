@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body, a {
+    color: white;
+}
+
 button,
 #cart input,
 summary {
@@ -20,13 +24,13 @@ details {
 }
 
 details,
-#header {
+header {
     padding-right: 1em;
     padding-left: 1em;
 }
 
 details,
-#header,
+header,
 .item button,
 form {
     padding-top: 10px;
@@ -71,10 +75,6 @@ form {
     width: 100%;
 }
 
-#header a {
-    color: white;
-}
-
 summary {
     display: flex;
 }
@@ -84,7 +84,7 @@ summary {
     flex-shrink: 0;
 }
 
-div#header {
+#background {
     text-align: center;
     line-height: 100vh;
     height: 100vh;

@@ -20,6 +20,8 @@ let storedHandle
 const fontSize = parseInt(window.getComputedStyle(main).fontSize)
 const minTextWidth = 12 * fontSize
 
+
+
 if (history.state) storedHandle = history.state.handle
 
 // build array
