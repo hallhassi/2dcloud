@@ -9,13 +9,14 @@
     }
   </style>
   {{ 'global.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
   <script>
     const indexScript = '{{ 'script.js' | asset_url }}'
   </script>
-  {{ content_for_header }}
 </head>
 
 <body>
+  {{ 'route.js' | asset_url | script_tag }}
   {{ content_for_layout }}
   <div id="header">
     <a href="https://2dcloud.com">
@@ -25,13 +26,13 @@
     </a>
   </div>
   {% comment %} <details id="header">
-                                            <summary>2dcloud 
-                                            </summary>
-                                            <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
-                                            <a href="https://2dcloud.substack.com">substack</a>,
-                                            <a href="https://x.com/2dcloud">twitter</a>,
-                                            <a href="https://instagram.com/2d.cloud">instagram</a>,
-                      </details> {% endcomment %}
+                                                <summary>2dcloud 
+                                                </summary>
+                                                <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
+                                                <a href="https://2dcloud.substack.com">substack</a>,
+                                                <a href="https://x.com/2dcloud">twitter</a>,
+                                                <a href="https://instagram.com/2d.cloud">instagram</a>,
+                        </details> {% endcomment %}
   <main>
 
     {% comment %}
