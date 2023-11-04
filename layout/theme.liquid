@@ -11,46 +11,20 @@
   <body>
     {{ content_for_layout }}
     <div id="background">
-        <svg>
-          <path d="M81.781,86.906c-4.973,0-9.155,3.475-10.219,8.125c-0.427-0.089-0.859-0.125-1.312-0.125c-3.571,0-6.469,2.898-6.469,6.469c0,3.354,2.574,6.115,5.844,6.438v0.031H81.25v-0.031c0.175,0.009,0.354,0.031,0.531,0.031c5.777,0,10.438-4.691,10.438-10.469C92.219,91.597,87.559,86.906,81.781,86.906z" />
-        </svg>
+      <svg>
+        <path d="M81.781,86.906c-4.973,0-9.155,3.475-10.219,8.125c-0.427-0.089-0.859-0.125-1.312-0.125c-3.571,0-6.469,2.898-6.469,6.469c0,3.354,2.574,6.115,5.844,6.438v0.031H81.25v-0.031c0.175,0.009,0.354,0.031,0.531,0.031c5.777,0,10.438-4.691,10.438-10.469C92.219,91.597,87.559,86.906,81.781,86.906z" />
+      </svg>
     </div>
     <header>
       <a href="https://2dcloud.com">2dcloud</a>
-      <button id="enhance">enhance</button>  
+      <button id="enhance">enhance</button>
+      <script>
+        const enhanceJs = '{{ 'enhance.js' | asset_url }}'
+        const enhanceCss = '{{ 'enhance.css' | asset_url }}'
+        const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
+      </script>
+      {{ 'enhanceButton.js' | asset_url | script_tag }}
     </header>
-    <script>
-      let enhanced = false
-      const enhancedButton = document.querySelector('#enhance')
-      const enhanceJs = '{{ 'enhance.js' | asset_url }}'
-      const enhanceCss = '{{ 'enhance.css' | asset_url }}'
-      const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
-
-      enhancedButton.addEventListener('click', enhance)
-
-      function enhance() {    
-        const css = document.createElement("link")
-        const js = document.createElement("script")
-        css.rel = "stylesheet"
-        css.type = "text/css"
-        css.media = "all"
-        css.classList.add("enhance")
-        css.href = enhanceCss
-        js.type = "text/javascript"
-        js.classList.add("enhance")
-        if (enhanced == false) {
-          js.src = enhanceJs
-          enhanced = true
-          enhancedButton.innerHTML = 'unenhance'
-        } else {
-          js.src = unenhanceJs
-          Array.from(document.querySelectorAll('.enhance')).forEach(e => e.remove())
-        }
-          document.head.appendChild(css)
-          document.body.appendChild(js)
-        
-      }
-    </script>
     <main>
       {% comment %}
         cart
