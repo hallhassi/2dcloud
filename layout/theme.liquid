@@ -3,11 +3,6 @@
   <head>
     <title>2dcloud</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <style > :root
-    {
-      --height: calc({% assign i = 0 %}{% paginate collections['all'].products by 1000 %}{% for product in collections["all"].products %}{% assign i = i | plus: 1 %}{% endfor %}{% endpaginate %}{{ i }} * 100px);
-    }
-  </style>
   {{ 'global.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
 </head>
