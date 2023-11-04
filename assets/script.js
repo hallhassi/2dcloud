@@ -22,6 +22,11 @@ const minTextWidth = 12 * fontSize
 
 if (history.state) storedHandle = history.state.handle
 
+//make images smaller
+
+imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
+
+
 // click on item
 
 document.body.addEventListener('click', (e) => {
