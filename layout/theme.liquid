@@ -20,8 +20,8 @@
 </head>
 
 <body>
-  {{ 'route.js' | asset_url | script_tag }}
   {{ content_for_layout }}
+  {{ 'route.js' | asset_url | script_tag }}
   <div id="header">
     <a href="https://2dcloud.com">
       <svg>
