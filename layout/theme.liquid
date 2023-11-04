@@ -15,7 +15,7 @@
 <body>
   {{ content_for_layout }}
   <script>
-    const indexScript = '{{ 'script.js' | asset_url }}'
+    const indexScript = '{{ 'scroll.js' | asset_url }}'
     const indexCss = '{{ 'scroll.css' | asset_url }}'
     const listCss = '{{ 'list.css' | asset_url }}'
 
@@ -44,16 +44,7 @@
       </svg>
     </a>
   </div>
-  {% comment %} <details id="header">
-                                                    <summary>2dcloud 
-                                                    </summary>
-                                                    <a href="mailto:info@2dcloud.com">info@2dcloud.com</a>,
-                                                    <a href="https://2dcloud.substack.com">substack</a>,
-                                                    <a href="https://x.com/2dcloud">twitter</a>,
-                                                    <a href="https://instagram.com/2d.cloud">instagram</a>,
-                          </details> {% endcomment %}
   <main>
-
     {% comment %}
       cart
     {% endcomment %}
@@ -185,4 +176,5 @@
     <canvas id="canvas"></canvas>
   </div>
   <div id="spacer"></div>
+  {{ 'script.js' | asset_url | script_tag }}
 </body></html>
