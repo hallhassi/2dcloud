@@ -99,6 +99,9 @@
         {% for product in collections.all.products %}
           {% if currentProductId == nil or currentProductId == product.id %}
             <details
+              {% if currentProductId %}
+              open="true"
+              {% endif %}
               class="item"
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}">
