@@ -72,6 +72,20 @@ video {
     max-height: 100%;
 }
 
+summary {
+    display: flex;
+    align-items: baseline;
+}
+
+.price {
+    width: 2rem;
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 2rem;
+}
+
 .item button,
 form {
     text-align: center;
@@ -82,19 +96,20 @@ form {
     width: 100%;
 }
 
-summary {
-    display: flex;
-    align-items: baseline;
+canvas {
+    visibility: hidden;
 }
 
-.title {
-    font-size: 2rem;
+#cart summary {
+    text-align: left;
+    width: 100%;
 }
 
-.price {
-    width: 2rem;
-    flex-shrink: 0;
+#spacer {
+    width: 0px;
+    display: none;
 }
+
 
 #background {
     text-align: center;
@@ -114,18 +129,4 @@ svg {
 svg path {
     transform: translate(-63px, -86px);
     fill: black;
-}
-
-canvas {
-    visibility: hidden;
-}
-
-#cart summary {
-    text-align: left;
-    width: 100%;
-}
-
-#spacer {
-    width: 0px;
-    display: none;
 }
