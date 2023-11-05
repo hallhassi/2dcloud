@@ -155,7 +155,7 @@
               {% endfor %}
               {{ product.description }}
               {% for tag in product.tags %}
-                <li><a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a></li>
+                <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a><br>
               {% endfor %}              
             </details>
           {% endif %}
