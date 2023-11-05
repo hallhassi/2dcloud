@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-body, a {
+body,
+a {
     color: white;
 }
 
@@ -44,10 +45,16 @@ form {
 }
 
 #cart {
-    position: sticky;
+    z-index: 2;
+    position: absolute;
+    overflow: scroll;
     top: 0;
-    left: 0;
-    left: 0;
+    right: 0;
+    left: auto;
+}
+
+#cart summary {
+    justify-content: end;
 }
 
 #cart input.qty {
@@ -112,4 +119,3 @@ canvas {
     text-align: left;
     width: 100%;
 }
-    
