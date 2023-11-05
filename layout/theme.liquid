@@ -105,12 +105,11 @@
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
           {% if currentProductId == nil or currentProductId == product.id %}
-            <details
+            {{currentProductId != nil}}            <details
               class="item"
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}"
-              open="{{currentProductId != nil}}">
-              <summary>
+>              <summary>
                 <div class="price">
                   {% if product.available %}
                     ${{ product.price | divided_by: 100.00 | ceil }}
