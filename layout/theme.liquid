@@ -100,7 +100,7 @@
     {% comment %}
       item
     {% endcomment %}
-    
+
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
@@ -110,7 +110,9 @@
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}"
               {% if currentProductId %}
-              open
+              open="true"
+              {% else %}
+              open="false"
               {% endif %}>
               <summary>
                 <div class="price">
