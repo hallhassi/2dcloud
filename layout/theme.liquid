@@ -109,11 +109,8 @@
               class="item"
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}"
-              {% if currentProductId %}
-              open="true"
-              {% else %}
-              open="false"
-              {% endif %}>
+              open="{{currentProductId == nil}}"
+              >
               <summary>
                 <div class="price">
                   {% if product.available %}
