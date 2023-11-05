@@ -35,11 +35,11 @@ details[open] {
 
 details[open] p,
 details[open] button {
-  max-width: 36em;
+  max-width: 36rem;
 }
 
 .item summary {
-  max-width: calc(100vw - 4em);
+  max-width: calc(100vw - 5rem);
 }
 
 .item {
@@ -62,8 +62,4 @@ main {
 
 #spacer {
   display: block;
-}
-
-#cart {
-  position: absolute;
 }

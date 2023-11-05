@@ -26,8 +26,8 @@ details {
 
 details,
 header {
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 details,
@@ -58,11 +58,11 @@ form {
 }
 
 #cart input.qty {
-    width: 2em;
+    width: 2rem;
 }
 
 #cart button {
-    margin-right: 1em;
+    margin-right: 1rem;
 }
 
 img,
@@ -84,10 +84,11 @@ form {
 
 summary {
     display: flex;
+    align-items: baseline;
 }
 
 .price {
-    width: 2em;
+    width: 2rem;
     flex-shrink: 0;
 }
 
