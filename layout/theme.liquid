@@ -107,6 +107,9 @@
               class="item"
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}">
+              {% if currentProductId %}
+                open
+              {% endif %}
               <summary>
                 <div class="price">
                   {% if product.available %}
@@ -156,7 +159,7 @@
               {{ product.description }}
               {% for tag in product.tags %}
                 <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a><br>
-              {% endfor %}              
+              {% endfor %}
             </details>
           {% endif %}
         {% endfor %}
