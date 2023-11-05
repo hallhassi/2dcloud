@@ -2,6 +2,7 @@
     <script>
     const productId = {{ product.id }}
     console.log('route: product' + productId);
+    console.log({{ product | json }})
 </script>
 </head>
 <body>
