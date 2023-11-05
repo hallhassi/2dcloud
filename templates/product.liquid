@@ -1,8 +1,9 @@
 <head>
     <script>
     const productId = {{ product.id }}
+    const stuff = {{ product.json }}
     console.log('route: product' + productId);
-    console.log({{ product | json }})
+    console.log(stuff)
 </script>
 </head>
 <body>
