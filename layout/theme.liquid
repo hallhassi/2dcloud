@@ -93,12 +93,12 @@
     {% comment %}
       item
     {% endcomment %}
-    {% assign currentProduct = product.id %}
+    {% assign currentProductId = product.id %}
 
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
-          {% if currentProduct == nil %}
+          {% if currentProductId == false or product.id == currentProductId %}
           <details
             class="item"
             data-handle="{{ product.handle }}"
