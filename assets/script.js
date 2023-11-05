@@ -25,9 +25,8 @@ const minTextWidth = 12 * fontSize
 
 if (history.state) storedHandle = history.state.handle
 if (typeof productId == 'number') {
-    const elToScrollTo = Array.from(items).find(x => x.dataset.id == productId)
-    elToScrollTo.open = true
-    elToScrollTo.scrollIntoView()
+    const currentProduct = Array.from(items).find(x => x.dataset.id == productId)
+    currentProduct.open = true
 }
 
 // build array
