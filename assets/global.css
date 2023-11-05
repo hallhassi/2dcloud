@@ -46,7 +46,7 @@ form {
 
 #cart {
     z-index: 2;
-    position: absolute;
+    position: fixed;
     overflow: scroll;
     top: 0;
     right: 0;
@@ -119,3 +119,9 @@ canvas {
     text-align: left;
     width: 100%;
 }
+
+#spacer {
+    width: 0px;
+    display: none;
+  }
+  
