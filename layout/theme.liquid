@@ -1,3 +1,5 @@
+{% assign currentProductId = product.id %}
+
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
@@ -17,7 +19,11 @@
     </div>
     <header>
       <a href="https://2dcloud.com">2dcloud</a>
-      <button id="enhance">enhance</button>
+      {% if currentProductId == nil %}
+        <button id="enhance">enhance</button>
+      {% else %}
+        <a href="../">shop</a>
+      {% endif %}
       <script>
         const enhanceJs = '{{ 'enhance.js' | asset_url }}'
         const enhanceCss = '{{ 'enhance.css' | asset_url }}'
@@ -93,15 +99,11 @@
     {% comment %}
       item
     {% endcomment %}
-    {% assign currentProductId = product.id %}
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
           {% if currentProductId == nil or currentProductId == product.id %}
             <details
-              {% if currentProductId %}
-              open="true"
-              {% endif %}
               class="item"
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}">
