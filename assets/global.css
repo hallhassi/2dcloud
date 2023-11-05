@@ -72,9 +72,11 @@ video {
     max-height: 100%;
 }
 
-img {
+img,
+video {
     display: block;
     margin: auto;
+    margin:10px;
 }
 
 summary {
@@ -109,15 +111,15 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  canvas {
+}
+
+canvas {
     visibility: hidden;
     position: absolute;
     max-height: 100vh;
     max-width: 100vw;
     pointer-events: none;
-  }
+}
 
 #cart summary {
     text-align: left;
