@@ -24,6 +24,11 @@ const minTextWidth = 12 * fontSize
 
 
 if (history.state) storedHandle = history.state.handle
+if (typeof productId == 'number') {
+    const elToScrollTo = Array.from(items).find(x => x.dataset.id == productId)
+    elToScrollTo.scrollIntoView()
+    elToScrollTo.open = true
+}
 
 // build array
 
@@ -116,7 +121,7 @@ function draw() {
     imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
-    if (previousItemIndex != itemIndex) {
+    if (img !== undefined && previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex]?.classList.add('vis')
