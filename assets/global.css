@@ -112,7 +112,7 @@ svg path {
 }
 
 canvas {
-    display: none;
+    visibility: hidden;
 }
 
 #cart summary {
@@ -123,5 +123,4 @@ canvas {
 #spacer {
     width: 0px;
     display: none;
-  }
-  
+}
