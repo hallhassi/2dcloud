@@ -97,7 +97,7 @@
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
-          {% if currentProductId == nil %}
+          {% if currentProductId == nil or currentProductId == product.id %}
             <details
               class="item"
               data-handle="{{ product.handle }}"
