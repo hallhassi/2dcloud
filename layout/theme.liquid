@@ -21,15 +21,15 @@
       <a href="https://2dcloud.com">2dcloud</a>
       {% if currentProductId == nil %}
         <button id="enhance">enhance</button>
+        <script>
+          const enhanceJs = '{{ 'enhance.js' | asset_url }}'
+          const enhanceCss = '{{ 'enhance.css' | asset_url }}'
+          const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
+        </script>
+        {{ 'enhanceButton.js' | asset_url | script_tag }}
       {% else %}
         <a href="../">shop</a>
       {% endif %}
-      <script>
-        const enhanceJs = '{{ 'enhance.js' | asset_url }}'
-        const enhanceCss = '{{ 'enhance.css' | asset_url }}'
-        const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
-      </script>
-      {{ 'enhanceButton.js' | asset_url | script_tag }}
     </header>
     {% comment %}
       cart

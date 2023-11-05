@@ -1,4 +1,4 @@
-let enhanced = false
+enhanced = false
 const enhancedButton = document.querySelector('#enhance')
 
 enhancedButton.addEventListener('click', enhance)
