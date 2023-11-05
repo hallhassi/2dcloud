@@ -105,11 +105,12 @@
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
           {% if currentProductId == nil or currentProductId == product.id %}
-            {{currentProductId == nil}}
             <details
               class="item"
               data-handle="{{ product.handle }}"
-              data-id="{{ product.id }}">
+              data-id="{{ product.id }}"
+              open="{{currentProductId !== nil}}"
+              >
               <summary>
                 <div class="price">
                   {% if product.available %}
