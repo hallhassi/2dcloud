@@ -116,7 +116,7 @@ function draw() {
     imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
-    if (img !== undefined && previousItemIndex != itemIndex && enhanced == true) {
+    if (img !== undefined && previousItemIndex != itemIndex && typeof enhanced !== 'undefined' && enhanced == true) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex]?.classList.add('vis')
