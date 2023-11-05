@@ -19,7 +19,6 @@
       <a href="https://2dcloud.com">2dcloud</a>
       <button id="enhance">enhance</button>
       <script>
-        console.log('a' + {{ product.id }})
         const enhanceJs = '{{ 'enhance.js' | asset_url }}'
         const enhanceCss = '{{ 'enhance.css' | asset_url }}'
         const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
@@ -99,7 +98,7 @@
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
-          {% if product.id == currentProduct.id %}
+          {% if product.id == currentProduct.id or product.id == nil %}
           <details
             class="item"
             data-handle="{{ product.handle }}"
