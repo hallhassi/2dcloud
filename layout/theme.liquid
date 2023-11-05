@@ -94,7 +94,9 @@
       item
     {% endcomment %}
     {% assign currentProductId = product.id %}
-    <script>console.log('{{currentProductId == nil}}')</script>
+    {%if currentProductId == nil%}
+    <script>console.log('a')</script>
+    {%endif%}
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
