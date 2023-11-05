@@ -94,13 +94,10 @@
       item
     {% endcomment %}
     {% assign currentProductId = product.id %}
-    {%if currentProductId == nil%}
-    <script>console.log('a')</script>
-    {%endif%}
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
-          {% if currentProductId == false or product.id == currentProductId %}
+          {% if currentProductId == nil %}
           <details
             class="item"
             data-handle="{{ product.handle }}"
