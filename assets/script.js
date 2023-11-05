@@ -18,7 +18,6 @@ const closeDetails = () => Array.from(details).forEach(item => item.open = false
 const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
 let storedHandle
-let enhanced = false
 const fontSize = parseInt(window.getComputedStyle(main).fontSize)
 const minTextWidth = 12 * fontSize
 
@@ -135,7 +134,7 @@ function draw() {
         console.log(`drawing ${imgArray.length}[${imgIndex}]`)
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        if (enhanced) {
+        if (enhanced !== undefined && enhanced !== false) {
             const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
             if (spaceForDetails > minTextWidth) {
                 items[itemIndex].style.width = `${spaceForDetails}px`
