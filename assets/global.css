@@ -87,6 +87,10 @@ summary {
     align-items: baseline;
 }
 
+.title {
+    font-size: 2em;
+}
+
 .price {
     width: 2rem;
     flex-shrink: 0;
