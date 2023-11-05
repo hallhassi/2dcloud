@@ -25,76 +25,76 @@
       </script>
       {{ 'enhanceButton.js' | asset_url | script_tag }}
     </header>
-    <main>
-      {% comment %}
-        cart
-      {% endcomment %}
+    {% comment %}
+      cart
+    {% endcomment %}
 
-      <details
-        id="cart"
-        class="hidden"
-        hidden>
-        <summary>
-          <div class="price" id="total"></div>
-        </summary>
-        {% paginate collections.all.products by 1000 %}
-          {% for product in collections.all.products %}
-            {% if product.has_only_default_variant %}
-              <div class="hidden" hidden>
-                <input
-                  class="qty"
-                  value="1"
-                  type="tel">
-                {% for variant in product.variants %}
-                  {% if variant.available %}
-                    <button
-                      data-id="{{ variant.id}}"
-                      data-price="{{ variant.price }}"
-                      class="buy">
-                      remove
-                    </button>
-                  {% endif %}
-                {% endfor %}
-                ${{ product.price | | divided_by: 100.00 | ceil }}
-                {{ product.title }}
-              </div>
-            {% else %}
+    <details
+      id="cart"
+      class="hidden"
+      hidden>
+      <summary>
+        <div class="price" id="total"></div>
+      </summary>
+      {% paginate collections.all.products by 1000 %}
+        {% for product in collections.all.products %}
+          {% if product.has_only_default_variant %}
+            <div class="hidden" hidden>
+              <input
+                class="qty"
+                value="1"
+                type="tel">
               {% for variant in product.variants %}
                 {% if variant.available %}
-                  <div class="hidden" hidden>
-                    <input class="qty" value="1">
-                    <button
-                      data-id="{{ variant.id}}"
-                      data-price="{{ variant.price }}"
-                      class="buy">
-                      remove</button>${{ product.price | | divided_by: 100.00 | ceil }}
-                    {{ product.title }}
-                    {% assign vsplits = variant.title | split: ' ' %}
-                    {% for vsplit in vsplits %}
-                      {{ vsplit | slice: 0 | upcase }}
-                    {% endfor %}
-                  </div>
+                  <button
+                    data-id="{{ variant.id}}"
+                    data-price="{{ variant.price }}"
+                    class="buy">
+                    remove
+                  </button>
                 {% endif %}
               {% endfor %}
-            {% endif %}
-          {% endfor %}
-        {% endpaginate %}
-        <form
-          class="checkout"
-          action="/cart"
-          method="post"
-          novalidate>
-          <input
-            type="submit"
-            name="checkout"
-            value="checkout">
-        </form>
-      </details>
+              ${{ product.price | | divided_by: 100.00 | ceil }}
+              {{ product.title }}
+            </div>
+          {% else %}
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                <div class="hidden" hidden>
+                  <input class="qty" value="1">
+                  <button
+                    data-id="{{ variant.id}}"
+                    data-price="{{ variant.price }}"
+                    class="buy">
+                    remove</button>${{ product.price | | divided_by: 100.00 | ceil }}
+                  {{ product.title }}
+                  {% assign vsplits = variant.title | split: ' ' %}
+                  {% for vsplit in vsplits %}
+                    {{ vsplit | slice: 0 | upcase }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endpaginate %}
+      <form
+        class="checkout"
+        action="/cart"
+        method="post"
+        novalidate>
+        <input
+          type="submit"
+          name="checkout"
+          value="checkout">
+      </form>
+    </details>
 
-      {% comment %}
-        item
-      {% endcomment %}
+    {% comment %}
+      item
+    {% endcomment %}
 
+    <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
           <details
