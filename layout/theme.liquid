@@ -31,7 +31,6 @@
         <a href="../">shop</a>
       {% endif %}
     </header>
-
     {% comment %}
       cart
     {% endcomment %}
@@ -100,7 +99,6 @@
     {% comment %}
       item
     {% endcomment %}
-
     <main>
       {% paginate collections.all.products by 1000 %}
         {% for product in collections.all.products %}
@@ -108,9 +106,10 @@
             <details
               class="item"
               data-handle="{{ product.handle }}"
-              data-id="{{ product.id }}"
-              open="{{currentProductId == nil}}"
-              >
+              data-id="{{ product.id }}">
+              {% if currentProductId %}
+                open
+              {% endif %}
               <summary>
                 <div class="price">
                   {% if product.available %}
