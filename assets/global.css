@@ -45,10 +45,6 @@ header {
     padding-left: 1rem;
 }
 
-details {
-    list-style: none;
-}
-
 header {
     font-size: 1.5rem;
 }
@@ -104,6 +100,7 @@ video {
 summary {
     display: flex;
     align-items: center;
+    list-style: none;
 }
 
 .price {

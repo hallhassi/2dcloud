@@ -116,7 +116,6 @@
                   {% if product.available %}
                     ${{ product.price | divided_by: 100.00 | ceil }}
                   {% endif %}
-                  <br>
                   {% if product.compare_at_price > product.price %}
                     <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
                   {% endif %}
@@ -159,7 +158,7 @@
               {% endfor %}
               {{ product.description }}
               {% for tag in product.tags %}
-                <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a><br>
+                <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a> 
               {% endfor %}
             </details>
           {% endif %}
