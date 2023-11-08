@@ -30,6 +30,10 @@ header {
     padding-left: 1rem;
 }
 
+details {
+    list-style: none;
+}
+
 header {
     font-size: 1.5rem;
 }
@@ -90,10 +94,6 @@ summary {
 .price {
     width: 2rem;
     flex-shrink: 0;
-}
-
-.title {
-    font-size: 2rem;
 }
 
 .item button,
