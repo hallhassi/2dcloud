@@ -149,16 +149,14 @@
                   {% endif %}
                 {% endfor %}
               {% endif %}
-              {% if collections.all.products[0] != product %}
-                {% for media in product.media %}
-                  {% case media.media_type %}
-                    {% when 'video' %}
-                      {{ media | video_tag: controls: true, image_size: '900x' }}
-                    {% when 'image' %}
-                      <img src="{{ media | image_url: width: 900}}">
-                  {% endcase %}
-                {% endfor %}
-              {% endif %}
+              {% for media in product.media %}
+                {% case media.media_type %}
+                  {% when 'video' %}
+                    {{ media | video_tag: controls: true, image_size: '900x' }}
+                  {% when 'image' %}
+                    <img src="{{ media | image_url: width: 900}}">
+                {% endcase %}
+              {% endfor %}
               {{ product.description }}
               {% for tag in product.tags %}
                 <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a><br>

@@ -61,6 +61,7 @@ Array.from(summaries).forEach(summary => {
         else if (parent.open == false) {
             closeDetails()
             parent.open = true
+            parent.scrollintoscrollIntoView()
             if (parent.dataset?.handle) pushState(parent.dataset.handle)
         }
     })
