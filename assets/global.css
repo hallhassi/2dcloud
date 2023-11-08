@@ -34,7 +34,7 @@ details {
     background: red;
 }
 
-details>*:not(img,button) {
+details>*:not(img,button,video) {
     margin-left: 10px;
     margin-right: 10px;
     text-align: justify;

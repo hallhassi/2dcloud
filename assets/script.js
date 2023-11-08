@@ -17,13 +17,13 @@ const context = canvas.getContext("2d")
 const closeDetails = () => Array.from(details).forEach(item => item.open = false)
 const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
-let storedHandle
+// let storedHandle
 const fontSize = parseInt(window.getComputedStyle(main).fontSize)
 const minTextWidth = 12 * fontSize
 
 
 
-if (history.state) storedHandle = history.state.handle
+// if (history.state) storedHandle = history.state.handle
 
 // build array
 
@@ -34,7 +34,7 @@ Array.from(items).forEach((item, itemIndex) => {
         img.itemIndex = itemIndex
         img.imgIndex = i
         img.productId = item.dataset.id
-        img.handle = item.dataset.handle
+        // img.handle = item.dataset.handle
         imgArray.push(img)
         i += 1
     })
@@ -62,15 +62,14 @@ Array.from(summaries).forEach(summary => {
             closeDetails()
             parent.open = true
             parent.scrollintoscrollIntoView()
-            if (parent.dataset?.handle) pushState(parent.dataset.handle)
         }
     })
 })
 
-function pushState(handle) {
-    history.pushState({ 'handle': handle }, '', `/products/${handle}`)
-    document.title = '2dcloud/' + handle;
-}
+// function pushState(handle) {
+//     history.pushState({ 'handle': handle }, '', `/products/${handle}`)
+//     document.title = '2dcloud/' + handle;
+// }
 
 
 
