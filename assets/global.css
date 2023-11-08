@@ -32,12 +32,6 @@ details > *:not(img,video,button) {
     padding-right: 1ch;
 }
 
-details,
-header {
-    padding-right: 1rem;
-    padding-left: 1rem;
-}
-
 header,
 .item button,
 form,
