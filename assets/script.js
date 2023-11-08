@@ -61,7 +61,7 @@ Array.from(summaries).forEach(summary => {
         else if (parent.open == false) {
             closeDetails()
             parent.open = true
-            parent.scrollintoscrollIntoView()
+            parent.scrollIntoView()
         }
     })
 })
