@@ -82,10 +82,6 @@ summary {
     flex-shrink: 0;
 }
 
-.title {
-    font-size: 2rem;
-}
-
 .item button,
 form {
     text-align: center;
