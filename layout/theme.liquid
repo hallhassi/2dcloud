@@ -112,17 +112,17 @@
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}">
               <summary>
-                <div class="price">
+                <span class="price">
                   {% if product.available %}
                     ${{ product.price | divided_by: 100.00 | ceil }}
                   {% endif %}
                   {% if product.compare_at_price > product.price %}
                     <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
                   {% endif %}
-                </div>
-                <div class="title">
+                </span>
+                <span class="title">
                   {{ product.title }}
-                </div>
+                </span>
               </summary>
               {% if product.has_only_default_variant %}
                 {% for variant in product.variants %}
