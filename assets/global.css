@@ -44,6 +44,10 @@ form {
     margin-bottom: 10px;
 }
 
+header {
+    font-size: 1.5rem;
+}
+
 #cart {
     z-index: 2;
     position: fixed;
