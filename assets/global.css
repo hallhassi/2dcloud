@@ -88,7 +88,7 @@ video {
 
 summary {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .price {
