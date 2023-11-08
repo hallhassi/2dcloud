@@ -40,7 +40,6 @@ details>*:not(img,button) {
     text-align: justify;
 }
 
-details,
 header {
     padding-right: 1rem;
     padding-left: 1rem;
