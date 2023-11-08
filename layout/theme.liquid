@@ -112,17 +112,18 @@
               data-handle="{{ product.handle }}"
               data-id="{{ product.id }}">
               <summary>
-                <span class="price">
+                <div class="price">
                   {% if product.available %}
                     ${{ product.price | divided_by: 100.00 | ceil }}
                   {% endif %}
                   {% if product.compare_at_price > product.price %}
+                    <br>
                     <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
                   {% endif %}
-                </span>
-                <span class="title">
+                </div>
+                <div class="title">
                   {{ product.title }}
-                </span>
+                </div>
               </summary>
               {% if product.has_only_default_variant %}
                 {% for variant in product.variants %}
@@ -151,14 +152,14 @@
               {% for media in product.media %}
                 {% case media.media_type %}
                   {% when 'video' %}
-                    {{ media | video_tag: controls: true, image_size: '900x' }}
+                    {{ media | video_tag: controls: true, image_size: '900x' }}`
                   {% when 'image' %}
                     <img src="{{ media | image_url: width: 900}}">
                 {% endcase %}
               {% endfor %}
               {{ product.description }}
               {% for tag in product.tags %}
-                <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a> 
+                <a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a><br>
               {% endfor %}
             </details>
           {% endif %}
@@ -168,6 +169,7 @@
         <canvas id="canvas"></canvas>
       </div>
     </main>
+    <div id="spacer"></div>
     {{ 'script.js' | asset_url | script_tag }}
   </body>
 </html>

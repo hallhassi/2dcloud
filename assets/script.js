@@ -17,13 +17,13 @@ const context = canvas.getContext("2d")
 const closeDetails = () => Array.from(details).forEach(item => item.open = false)
 const closeCart = () => cart.open = false
 let previousItemIndex, previousImgIndex
-// let storedHandle
+let storedHandle
 const fontSize = parseInt(window.getComputedStyle(main).fontSize)
 const minTextWidth = 12 * fontSize
 
 
 
-// if (history.state) storedHandle = history.state.handle
+if (history.state) storedHandle = history.state.handle
 
 // build array
 
@@ -34,7 +34,7 @@ Array.from(items).forEach((item, itemIndex) => {
         img.itemIndex = itemIndex
         img.imgIndex = i
         img.productId = item.dataset.id
-        // img.handle = item.dataset.handle
+        img.handle = item.dataset.handle
         imgArray.push(img)
         i += 1
     })
@@ -45,31 +45,31 @@ Array.from(items).forEach((item, itemIndex) => {
 imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
 
 
-// item summary onclick
+// click on item
 
 document.body.addEventListener('click', (e) => {
-    if (e.target == e.currentTarget) {
-        closeDetails()
-    }
+    if (e.target == e.currentTarget) closeDetails()
 })
 
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
         e.preventDefault()
         const parent = e.currentTarget.parentNode
+        console.log(e.currentTarget, parent.open);
         if (parent.open == true) parent.open = false
         else if (parent.open == false) {
             closeDetails()
             parent.open = true
             parent.scrollIntoView()
         }
+        if (parent.dataset?.handle) pushState(parent.dataset.handle)
     })
 })
 
-// function pushState(handle) {
-//     history.pushState({ 'handle': handle }, '', `/products/${handle}`)
-//     document.title = '2dcloud/' + handle;
-// }
+function pushState(handle) {
+    history.pushState({ 'handle': handle }, '', `/products/${handle}`)
+    document.title = '2dcloud/' + handle;
+}
 
 
 
@@ -117,7 +117,7 @@ function draw() {
     imgIndex = Math.max(0, Math.floor((window.scrollY - initialOffset) / scrollStep))
     const img = imgArray[imgIndex]
     const itemIndex = img?.itemIndex
-    if (img !== undefined && previousItemIndex != itemIndex && typeof enhanced !== 'undefined' && enhanced == true) {
+    if (img !== undefined && previousItemIndex != itemIndex) {
         previousItemIndex = itemIndex
         items.forEach(item => item.classList.remove('vis'))
         items[itemIndex]?.classList.add('vis')
@@ -130,7 +130,7 @@ function draw() {
         console.log(`drawing ${imgArray.length}[${imgIndex}]`)
         context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         canvas.style.top = Math.floor((window.innerHeight - canvas.getBoundingClientRect().height) / 2) + 'px'
-        if (typeof enhanced !== 'undefined' && enhanced !== false) {
+        if (enhanced !== undefined && enhanced !== false) {
             const spaceForDetails = (window.innerWidth - canvas.getBoundingClientRect().width) / 2
             if (spaceForDetails > minTextWidth) {
                 items[itemIndex].style.width = `${spaceForDetails}px`
