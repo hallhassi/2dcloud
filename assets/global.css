@@ -9,6 +9,16 @@ a {
     color: white;
 }
 
+/* main {
+    grid-auto-rows: 1fr;
+    display: grid;
+    align-items: center;
+}
+
+details[open] {
+    position: absolute;
+} */
+
 button,
 #cart input,
 summary {
