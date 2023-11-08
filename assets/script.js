@@ -45,23 +45,24 @@ Array.from(items).forEach((item, itemIndex) => {
 imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
 
 
-// click on item
+// item summary onclick
 
 document.body.addEventListener('click', (e) => {
-    if (e.target == e.currentTarget) closeDetails()
+    if (e.target == e.currentTarget) {
+        closeDetails()
+    }
 })
 
 Array.from(summaries).forEach(summary => {
     summary.addEventListener('click', (e) => {
         e.preventDefault()
         const parent = e.currentTarget.parentNode
-        console.log(e.currentTarget, parent.open);
         if (parent.open == true) parent.open = false
         else if (parent.open == false) {
             closeDetails()
             parent.open = true
+            if (parent.dataset?.handle) pushState(parent.dataset.handle)
         }
-        if (parent.dataset?.handle) pushState(parent.dataset.handle)
     })
 })
 

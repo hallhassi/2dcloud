@@ -116,8 +116,8 @@
                   {% if product.available %}
                     ${{ product.price | divided_by: 100.00 | ceil }}
                   {% endif %}
+                  <br>
                   {% if product.compare_at_price > product.price %}
-                    <br>
                     <s>${{ product.compare_at_price | divided_by: 100.00 | ceil }}</s>
                   {% endif %}
                 </div>
