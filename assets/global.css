@@ -9,16 +9,6 @@ a {
     color: white;
 }
 
-/* main {
-    grid-auto-rows: 1fr;
-    display: grid;
-    align-items: center;
-}
-
-details[open] {
-    position: absolute;
-} */
-
 button,
 #cart input,
 summary {
@@ -34,19 +24,10 @@ details {
     background: red;
 }
 
-details>*:not(img,button,video) {
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: justify;
-}
-
+details,
 header {
     padding-right: 1rem;
     padding-left: 1rem;
-}
-
-header {
-    font-size: 1.5rem;
 }
 
 details,
@@ -59,8 +40,8 @@ form {
 
 .item button,
 form {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #cart {
@@ -91,16 +72,9 @@ video {
     max-height: 100%;
 }
 
-img,
-video {
-    display: block;
-    margin: 0 auto;
-}
-
 summary {
     display: flex;
-    align-items: center;
-    list-style: none;
+    align-items: baseline;
 }
 
 .price {
@@ -108,9 +82,14 @@ summary {
     flex-shrink: 0;
 }
 
+.title {
+    font-size: 2rem;
+}
+
 .item button,
 form {
     text-align: center;
+    outline: 1px solid;
 }
 
 .item button {
@@ -125,15 +104,15 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-canvas {
+  }
+  
+  canvas {
     visibility: hidden;
     position: absolute;
     max-height: 100vh;
     max-width: 100vw;
     pointer-events: none;
-}
+  }
 
 #cart summary {
     text-align: left;
@@ -163,5 +142,5 @@ svg {
 
 svg path {
     transform: translate(-63px, -86px);
-    fill: white;
+    fill: black;
 }
