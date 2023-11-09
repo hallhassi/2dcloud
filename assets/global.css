@@ -85,6 +85,14 @@ header {
     justify-content: space-between;
 }
 
+#cart[open] .close {
+    display: none;
+}
+
+#cart[open] .open {
+    display: initial;
+}
+
 #cart .title {
     flex-grow: 1;
 }
