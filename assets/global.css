@@ -83,18 +83,17 @@ header {
     display: initial;
 }
 
-#cart .close {
+#cart[open] .open {
     display: none;
+}
+
+#cart .close {
+    display: initial;
 }
 
 #cart[open] .close {
     display: none;
 }
-
-#cart[open] .open {
-    display: initial;
-}
-
 #cart .title {
     flex-grow: 1;
 }
