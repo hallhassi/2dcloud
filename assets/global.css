@@ -83,6 +83,10 @@ header {
     display: initial;
 }
 
+#cart .close {
+    display: none;
+}
+
 #cart[open] .close {
     display: none;
 }
