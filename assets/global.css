@@ -59,13 +59,16 @@ header {
 }
 
 #cart {
-    width: 100%;
     z-index: 2;
     position: fixed;
     overflow: scroll;
     top: 0;
     right: 0;
     left: auto;
+}
+
+#cart[open] {
+    width: 100%;
 }
 
 #cart summary {
