@@ -79,7 +79,7 @@ header {
     margin-right: 1rem;
 }
 
-#cart div:not([hidden]) {
+#cart[open] div:not([hidden]) {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -165,8 +165,4 @@ svg {
 svg path {
     transform: translate(-63px, -86px);
     fill: black;
-}
-
-.hidden {
-    display: none;
 }
