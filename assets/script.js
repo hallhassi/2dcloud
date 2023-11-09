@@ -46,7 +46,7 @@ Array.from(items).forEach((item, itemIndex) => {
 imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
 
 
-click on item
+// click on item
 
 document.body.addEventListener('click', (e) => {
     if (e.target == e.currentTarget) closeDetails()
@@ -59,10 +59,10 @@ Array.from(summaries).forEach(summary => {
         console.log(e.currentTarget, parent.open);
         if (parent.open == true) parent.open = false
         else if (parent.open == false) {
+            const winY = parent.getBoundingClientRect().top
             closeDetails()
+            scrollTo(0, parent.getBoundingClientRect().top - winY)
             parent.open = true
-            const w = window.scrollY
-            const t = parent.top
         }
         if (parent.dataset?.handle) pushState(parent.dataset.handle)
     })
