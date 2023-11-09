@@ -50,8 +50,6 @@
         {% for product in collections.all.products %}
           {% if product.has_only_default_variant %}
             <div class="hidden" hidden>
-              <span class="title">
-                ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
               <input
                 class="qty"
                 value="1"
@@ -66,6 +64,8 @@
                   </button>
                 {% endif %}
               {% endfor %}
+              ${{ product.price | | divided_by: 100.00 | ceil }}
+              {{ product.title }}
             </div>
           {% else %}
             {% for variant in product.variants %}
