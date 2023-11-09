@@ -45,7 +45,7 @@ summary {
 
 a,
 .item .title,
-#total,
+summary,
 button {
     cursor: pointer;
 }
@@ -181,13 +181,4 @@ svg {
 svg path {
     transform: translate(-63px, -86px);
     fill: black;
-}
-
-#checkout {
-    align-items: center;
-    padding: 0;
-}
-
-#checkout form {
-    flex-grow: 1;
 }
