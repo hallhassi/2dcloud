@@ -80,10 +80,6 @@ header {
     text-align: center;
 }
 
-#cart button {
-    margin-right: 1rem;
-}
-
 #cart .open {
     display: none;
 }
