@@ -19,15 +19,15 @@
     <header>
       <a href="https://2dcloud.com">2dcloud</a>
       {% comment %} {% if currentProductId == nil %}
-                <button id="enhance">enhance</button>
-                <script>
-                  const enhanceJs = '{{ 'enhance.js' | asset_url }}'
-                  const enhanceCss = '{{ 'enhance.css' | asset_url }}'
-                  const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
-                </script>
-                {{ 'enhanceButton.js' | asset_url | script_tag }}
-              {% endif %}
-          {% endcomment %}
+                        <button id="enhance">enhance</button>
+                        <script>
+                          const enhanceJs = '{{ 'enhance.js' | asset_url }}'
+                          const enhanceCss = '{{ 'enhance.css' | asset_url }}'
+                          const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
+                        </script>
+                        {{ 'enhanceButton.js' | asset_url | script_tag }}
+                      {% endif %}
+                {% endcomment %}
       {% if currentProductId %}
         <a href="../">shop</a>
       {% else %}
@@ -52,6 +52,7 @@
             <div class="hidden" hidden>
               <span class="title">
                 ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
+              </span>
               <input
                 class="qty"
                 value="1"
