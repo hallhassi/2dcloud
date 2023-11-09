@@ -82,11 +82,11 @@ header {
 }
 
 #cart .open {
-    display: initial;
+    display: none;
 }
 
 #cart[open] .open {
-    display: none;
+    display: initial;
 }
 
 #cart .close {
