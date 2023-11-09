@@ -85,6 +85,10 @@ header {
     justify-content: space-between;
 }
 
+#cart .open {
+    display: initial;
+}
+
 #cart[open] .close {
     display: none;
 }
