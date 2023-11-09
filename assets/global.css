@@ -3,6 +3,7 @@
     font-weight: normal;
     box-sizing: border-box;
 }
+
 body {
     font-size: 1.5rem;
 }
@@ -27,7 +28,7 @@ details {
     background: red;
 }
 
-details > *:not(img,video,button,summary) {
+details>*:not(img, video, button, summary) {
     padding-left: 1ch;
     padding-right: 1ch;
     font-size: 1rem;
@@ -78,7 +79,7 @@ header {
     margin-right: 1rem;
 }
 
-#cart div {
+#cart div:not([hidden]) {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -87,6 +88,7 @@ header {
 #cart .title {
     flex-grow: 1;
 }
+
 img,
 canvas,
 video {
@@ -163,4 +165,8 @@ svg {
 svg path {
     transform: translate(-63px, -86px);
     fill: black;
+}
+
+.hidden {
+    display: none;
 }
