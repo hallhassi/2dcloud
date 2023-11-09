@@ -19,20 +19,83 @@
     <header>
       <a href="https://2dcloud.com">2dcloud</a>
       {% comment %} {% if currentProductId == nil %}
-                                        <button id="enhance">enhance</button>
-                                        <script>
-                                          const enhanceJs = '{{ 'enhance.js' | asset_url }}'
-                                          const enhanceCss = '{{ 'enhance.css' | asset_url }}'
-                                          const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
-                                        </script>
-                                        {{ 'enhanceButton.js' | asset_url | script_tag }}
-                                      {% endif %}
-                            {% endcomment %}
-      {% if currentProductId %}
-        <a href="../">shop</a>
-      {% else %}
+                                                <button id="enhance">enhance</button>
+                                                <script>
+                                                  const enhanceJs = '{{ 'enhance.js' | asset_url }}'
+                                                  const enhanceCss = '{{ 'enhance.css' | asset_url }}'
+                                                  const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
+                                                </script>
+                                                {{ 'enhanceButton.js' | asset_url | script_tag }}
+                                              {% endif %}
+                                  {% endcomment %}
+
+      {% if currentProductId %}<a href="../">{% endif %}
         shop
-      {% endif %}
+      {% if currentProductId %}</a>{% endif %}
+      <details
+        id="cart"
+        class="hidden"
+        hidden>
+        <summary>
+          <div class="open">(<span id="count"></span>)</div>
+          <div class="close">×</div>
+        </summary>
+        {% paginate collections.all.products by 1000 %}
+          {% for product in collections.all.products %}
+            {% if product.has_only_default_variant %}
+              <div class="hidden" hidden>
+                <span class="title">
+                  ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
+                </span>
+                <input
+                  class="qty"
+                  value="1"
+                  type="tel">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <button
+                      data-id="{{ variant.id}}"
+                      data-price="{{ variant.price }}"
+                      class="buy">
+                      remove
+                    </button>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% else %}
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <div class="hidden" hidden>
+                    <input class="qty" value="1">
+                    <button
+                      data-id="{{ variant.id}}"
+                      data-price="{{ variant.price }}"
+                      class="buy">
+                      remove</button>${{ product.price | | divided_by: 100.00 | ceil }}
+                    {{ product.title }}
+                    {% assign vsplits = variant.title | split: ' ' %}
+                    {% for vsplit in vsplits %}
+                      {{ vsplit | slice: 0 | upcase }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endpaginate %}
+        <div id="total"></div>
+        <form
+          action="/cart"
+          method="post"
+          novalidate>
+          <input
+            type="submit"
+            name="checkout"
+            value="checkout">
+        </form>
+
+
+      </details>
     </header>
 
 
