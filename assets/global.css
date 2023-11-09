@@ -59,6 +59,7 @@ header {
 }
 
 #cart {
+    width: 100%;
     z-index: 2;
     position: fixed;
     overflow: scroll;
@@ -73,6 +74,7 @@ header {
 
 #cart input.qty {
     width: 2rem;
+    text-align: center;
 }
 
 #cart button {
@@ -94,6 +96,12 @@ header {
 #cart[open] .close {
     display: none;
 }
+
+#cart>div:not([hidden]) {
+    display: flex;
+    justify-content: space-between;
+}
+
 #cart .title {
     flex-grow: 1;
 }
