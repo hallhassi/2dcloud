@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+body, form.checkbox {
     font-size: 1.5rem;
 }
 
@@ -182,4 +182,9 @@ svg {
 svg path {
     transform: translate(-63px, -86px);
     fill: black;
+}
+
+.checkout {
+    align-items: center;
+    padding: 0;
 }
