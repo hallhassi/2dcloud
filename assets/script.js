@@ -6,6 +6,7 @@ const header = document.querySelector('header')
 const display = document.querySelector('#display')
 const spacer = document.querySelector('#spacer')
 const total = cart.querySelector('#total')
+const count = cart.querySelector('#count')
 const buys = Array.from(document.querySelectorAll('.buy'))
 const qtys = Array.from(document.querySelectorAll('.qty'))
 const checkbox = document.getElementById('checkbox')
@@ -154,6 +155,7 @@ function updateCart() {
     added.length > 0 ? show(cart) : hide(cart)
     let addedtocart = cart.querySelectorAll('.added')
     total.innerText = "$" + Math.round(Array.from(addedtocart).reduce((p, c) => p + parseInt(c.dataset.price) * c.parentNode.querySelector('.qty').value, 0) / 100)
+    count.innerText = addedtocart.length.toString()
 }
 
 // toggle Item
