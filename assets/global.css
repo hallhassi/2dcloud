@@ -30,6 +30,7 @@ details {
 details > *:not(img,video,button,summary) {
     padding-left: 1ch;
     padding-right: 1ch;
+    font-size: 1rem;
 }
 
 header,
@@ -42,10 +43,14 @@ summary {
 
 
 a,
-.title,
+.item .title,
 #total,
 button {
     cursor: pointer;
+}
+
+.item[open] .title {
+    max-width: calc(100vw - 4em);
 }
 
 header {
@@ -73,6 +78,15 @@ header {
     margin-right: 1rem;
 }
 
+#cart div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#cart .title {
+    flex-grow: 1;
+}
 img,
 canvas,
 video {
