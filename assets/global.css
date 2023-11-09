@@ -27,9 +27,15 @@ details {
     background: red;
 }
 
-details > *:not(img,video,button,summary) {
+details > *:not(img,video,button) {
     padding-left: 1ch;
     padding-right: 1ch;
+}
+
+details,
+header {
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 header,
@@ -46,6 +52,13 @@ a,
 #total,
 button {
     cursor: pointer;
+    text-decoration: underline;
+}
+
+.item button,
+form {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 header {
