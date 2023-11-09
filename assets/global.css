@@ -27,7 +27,7 @@ details {
     background: red;
 }
 
-details > *:not(img,video,button) {
+details > *:not(img,video,button,summary) {
     padding-left: 1ch;
     padding-right: 1ch;
 }
