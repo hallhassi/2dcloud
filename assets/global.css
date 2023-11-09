@@ -3,9 +3,6 @@
     font-weight: normal;
     box-sizing: border-box;
 }
-body {
-    font-size: 1.5rem;
-}
 
 body,
 a {
@@ -27,42 +24,28 @@ details {
     background: red;
 }
 
-details > *:not(img,video,button) {
-    padding-left: 1ch;
-    padding-right: 1ch;
-}
-
 details,
 header {
     padding-right: 1rem;
     padding-left: 1rem;
 }
 
+details,
 header,
 .item button,
-form,
-summary {
+form {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-
-a,
-.title,
-#total,
-button {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
 .item button,
 form {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 header {
-    padding-left: 1em;
+    font-size: 1.5rem;
 }
 
 #cart {
@@ -99,16 +82,14 @@ summary {
 }
 
 .price {
-    width: 2em;
+    width: 2rem;
     flex-shrink: 0;
-    font-size: 1rem;
-    text-align: right;
-    margin-right: 1ch;
 }
 
 .item button,
 form {
     text-align: center;
+    outline: 1px solid;
 }
 
 .item button {
@@ -123,15 +104,15 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-canvas {
+  }
+  
+  canvas {
     visibility: hidden;
     position: absolute;
     max-height: 100vh;
     max-width: 100vw;
     pointer-events: none;
-}
+  }
 
 #cart summary {
     text-align: left;
