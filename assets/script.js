@@ -46,7 +46,7 @@ Array.from(items).forEach((item, itemIndex) => {
 imgArray.forEach(img => img.src = img.src.replace('2048x2048', '900x900'))
 
 
-// click on item
+click on item
 
 document.body.addEventListener('click', (e) => {
     if (e.target == e.currentTarget) closeDetails()
@@ -61,7 +61,8 @@ Array.from(summaries).forEach(summary => {
         else if (parent.open == false) {
             closeDetails()
             parent.open = true
-            parent.scrollIntoView()
+            const w = window.scrollY
+            const t = parent.top
         }
         if (parent.dataset?.handle) pushState(parent.dataset.handle)
     })

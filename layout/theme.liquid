@@ -1,79 +1,78 @@
 {% assign currentProductId = product.id %}
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
-  <head>
-    <title>2dcloud</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    {{ 'global.css' | asset_url | stylesheet_tag }}
-    {{ 'list.css' | asset_url | stylesheet_tag }}
-    {{ content_for_header }}
-  </head>
+<head>
+  <title>2dcloud</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{ 'global.css' | asset_url | stylesheet_tag }}
+  {{ 'list.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
 
-  <body>
-    {{ content_for_layout }}
-    <header>
-    <a href="https://2dcloud.com">2dcloud</a> {% if currentProductId %}<a href="../">{% endif %}
-      shop {% if currentProductId %}
-    </a>{% endif %}
-      <details id="cart" hidden>
-        <summary>cart</summary>
-        {% paginate collections.all.products by 1000 %}
-          {% for product in collections.all.products %}
-            {% if product.has_only_default_variant %}
-              <div hidden>
-                <span class="title">
-                  ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
-                </span>
-                <input
-                  class="qty"
-                  value="1"
-                  type="tel">
-                {% for variant in product.variants %}
-                  {% if variant.available %}
-                    <button
-                      data-id="{{ variant.id}}"
-                      data-price="{{ variant.price }}"
-                      class="buy">
-                      remove
-                    </button>
-                  {% endif %}
-                {% endfor %}
-              </div>
-            {% else %}
+<body>
+  {{ content_for_layout }}
+  <header>
+    <a href="https://2dcloud.com">2dcloud</a> 
+    {% if currentProductId %}<a href="../">{% endif %}shop {% if currentProductId %}</a>{% endif %}
+    <details id="cart" hidden>
+      <summary>cart</summary>
+      {% paginate collections.all.products by 1000 %}
+        {% for product in collections.all.products %}
+          {% if product.has_only_default_variant %}
+            <div hidden>
+              <span class="title">
+                ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
+              </span>
+              <input
+                class="qty"
+                value="1"
+                type="tel">
               {% for variant in product.variants %}
                 {% if variant.available %}
-                  <div hidden>
-                    <input class="qty" value="1">
-                    <button
-                      data-id="{{ variant.id}}"
-                      data-price="{{ variant.price }}"
-                      class="buy">
-                      remove</button>${{ product.price | | divided_by: 100.00 | ceil }}
-                    {{ product.title }}
-                    {% assign vsplits = variant.title | split: ' ' %}
-                    {% for vsplit in vsplits %}
-                      {{ vsplit | slice: 0 | upcase }}
-                    {% endfor %}
-                  </div>
+                  <button
+                    data-id="{{ variant.id}}"
+                    data-price="{{ variant.price }}"
+                    class="buy">
+                    remove
+                  </button>
                 {% endif %}
               {% endfor %}
-            {% endif %}
-          {% endfor %}
-        {% endpaginate %}
-        <div id="total"></div>
-        <form
-          action="/cart"
-          method="post"
-          novalidate>
-          <input
-            type="submit"
-            name="checkout"
-            value="checkout">
-        </form>
+            </div>
+          {% else %}
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                <div hidden>
+                  <input class="qty" value="1">
+                  <button
+                    data-id="{{ variant.id}}"
+                    data-price="{{ variant.price }}"
+                    class="buy">
+                    remove</button>${{ product.price | | divided_by: 100.00 | ceil }}
+                  {{ product.title }}
+                  {% assign vsplits = variant.title | split: ' ' %}
+                  {% for vsplit in vsplits %}
+                    {{ vsplit | slice: 0 | upcase }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endpaginate %}
+      <div id="total"></div>
+      <form
+        action="/cart"
+        method="post"
+        novalidate>
+        <input
+          type="submit"
+          name="checkout"
+          value="checkout">
+      </form>
 
 
-      </details>
-    </header>
+    </details>
+  </header>
 
 
     {% comment %}
