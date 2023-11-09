@@ -187,7 +187,11 @@ svg path {
     fill: black;
 }
 
-.checkout {
+#checkout {
     align-items: center;
     padding: 0;
+}
+
+#checkout form {
+    flex-grow: 1;
 }
