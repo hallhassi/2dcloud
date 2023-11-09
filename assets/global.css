@@ -28,7 +28,7 @@ details {
     background: red;
 }
 
-details>*:not(img, video, button, summary) {
+details>*:not(img, video, button, form, summary) {
     padding-left: 1ch;
     padding-right: 1ch;
     font-size: 1rem;
@@ -38,8 +38,8 @@ header,
 .item button,
 form,
 summary {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 
@@ -79,7 +79,7 @@ header {
     margin-right: 1rem;
 }
 
-#cart[open] div:not([hidden]) {
+#cart[open] div:not([hidden],.cart) {
     display: flex;
     width: 100%;
     justify-content: space-between;
