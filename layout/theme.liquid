@@ -17,33 +17,13 @@
       </svg>
     </div>
     <header>
-      <a href="https://2dcloud.com">2dcloud</a>
-      {% comment %} {% if currentProductId == nil %}
-                                                <button id="enhance">enhance</button>
-                                                <script>
-                                                  const enhanceJs = '{{ 'enhance.js' | asset_url }}'
-                                                  const enhanceCss = '{{ 'enhance.css' | asset_url }}'
-                                                  const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
-                                                </script>
-                                                {{ 'enhanceButton.js' | asset_url | script_tag }}
-                                              {% endif %}
-                                  {% endcomment %}
-
-      {% if currentProductId %}<a href="../">{% endif %}
-        shop
-      {% if currentProductId %}</a>{% endif %}
-      <details
-        id="cart"
-        class="hidden"
-        hidden>
-        <summary>
-          <div class="open">(<span id="count"></span>)</div>
-          <div class="close">×</div>
-        </summary>
+    <a href="https://2dcloud.com">2dcloud</a> {% if currentProductId %}<a href="../">{% endif %}shop {% if currentProductId %}</a>{% endif %}
+      <details id="cart" hidden>
+        <summary>cart</summary>
         {% paginate collections.all.products by 1000 %}
           {% for product in collections.all.products %}
             {% if product.has_only_default_variant %}
-              <div class="hidden" hidden>
+              <div hidden>
                 <span class="title">
                   ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
                 </span>
@@ -65,7 +45,7 @@
             {% else %}
               {% for variant in product.variants %}
                 {% if variant.available %}
-                  <div class="hidden" hidden>
+                  <div hidden>
                     <input class="qty" value="1">
                     <button
                       data-id="{{ variant.id}}"
@@ -176,3 +156,16 @@
     {{ 'script.js' | asset_url | script_tag }}
   </body>
 </html>
+
+
+      {% comment %} {% if currentProductId == nil %}
+                                                <button id="enhance">enhance</button>
+                                                <script>
+                                                  const enhanceJs = '{{ 'enhance.js' | asset_url }}'
+                                                  const enhanceCss = '{{ 'enhance.css' | asset_url }}'
+                                                  const unenhanceJs = '{{ 'unenhance.js' | asset_url }}'
+                                                </script>
+                                                {{ 'enhanceButton.js' | asset_url | script_tag }}
+                                              {% endif %}
+                                  {% endcomment %}
+
