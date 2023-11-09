@@ -104,7 +104,7 @@ video {
     max-height: 100%;
 }
 
-summary {
+.item summary {
     display: flex;
     align-items: baseline;
 }
