@@ -79,12 +79,6 @@ header {
     margin-right: 1rem;
 }
 
-#cart[open] div:not([hidden], .price) {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
 #cart .open {
     display: initial;
 }
