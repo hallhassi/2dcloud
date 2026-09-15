@@ -21,7 +21,7 @@
           {% if product.has_only_default_variant %}
             <div hidden>
               <span class="title">
-                ${{ product.price | | divided_by: 100.00 | ceil }} {{ product.title }}
+                ${{ product.price | divided_by: 100.0 | ceil }} {{ product.title }}
               </span>
               <input
                 class="qty"
@@ -47,7 +47,7 @@
                     data-id="{{ variant.id}}"
                     data-price="{{ variant.price }}"
                     class="buy">
-                    remove</button>${{ product.price | | divided_by: 100.00 | ceil }}
+                    remove</button>${{ product.price | divided_by: 100.0 | ceil }}
                   {{ product.title }}
                   {% assign vsplits = variant.title | split: ' ' %}
                   {% for vsplit in vsplits %}
@@ -166,3 +166,16 @@
                                               {% endif %}
                                   {% endcomment %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ product.price | | divided_by: 100.00 | ceil }}"
+  to: "{{ product.price | divided_by: 100.0 | ceil }}"
+  position: 873..919
+- from: "{{ product.price | | divided_by: 100.00 | ceil }}"
+  to: "{{ product.price | divided_by: 100.0 | ceil }}"
+  position: 1830..1876
+{% endcomment %}
